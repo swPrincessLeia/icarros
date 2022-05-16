@@ -1,0 +1,20 @@
+.all{ 
+    background: rgb(14, 13, 13);
+    color: white;  
+    text-align: center;
+    padding: 5px 0;
+  }
+  
+  .img {
+       max-width: 300px; 
+       border-radius: 50%;    
+      }
+  
+  .center{
+      text-align: center;
+  }
+  
+  .no-marker{
+      list-style-type: none;
+  }
+  
