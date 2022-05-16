@@ -1,0 +1,62 @@
+
+
+import java.util.Scanner;
+
+public class ProcessaNotas {
+
+	
+
+
+public static void main(String[] args) {
+		
+
+		Scanner in = new Scanner(System.in);
+		
+		String[] alunos;
+		Double[] nota;
+		double media;
+		
+		for(int i = 0;  i <alunos.length; i++)	
+			
+	
+	System.out.println("Informe o nome do aluno:");
+			
+	alunos[i]=  in.next();
+	
+	System.out.println("Informe suas notas");
+	
+	nota [i]=entrada next.double()
+	System.out.println("Nota 1:");
+	nota1 = in.nextInt();
+	System.out.println("Nota 2:");
+	nota2 = in.nextInt();
+	System.out.println("Nota 3:");
+	nota3 = in.nextInt();
+	System.out.println("Nota 4:");
+	nota4 = in.nextInt();
+	
+	System.out.println("\nAluno: " + nomeAluno +
+					   "\nNota 1: " +nota1+
+					   "\nNota 2: " +nota2+
+					   "\nNota 3: " +nota3+
+					   "\nNota 4: " +nota4); 
+	
+	media= (nota1+nota2+nota3+nota4)/4;
+	
+	System.out.println("\nSua média é: " + media );
+					   
+			
+	if(media<5) {
+		System.out.println("Aluno reprovado");		
+	}else if(media==5) {
+		System.out.println("Aluno em recuperação");
+	} else {
+		System.out.println("Aluno aprovado");
+	}
+		 
+	
+	}
+
+}
+
+

@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class ProcessaTabuada {
+
+	public static void main(String[] args) {
+
+		int multiplicando, multiplicador, resp;
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("\nExercício 1: Digitar um número e retornar a tabuada:");
+		System.out.println("\nDigite o número o qual deseja saber a tabuada");
+		multiplicando = in.nextInt();
+		
+			System.out.println("\nTabuada do número " + multiplicando + " é: \n");
+			
+			for (multiplicador = 1; multiplicador <= 10; multiplicador++) {
+				resp = multiplicando * multiplicador;
+				System.out.println(multiplicando + " * " + multiplicador + " = " + resp);
+			}
+		
+
+		System.out.println("\nExercício 2: informar um número de 1 a 9 e retornar a tabuada:");
+		System.out.println("\nDigite um numero entre 1 e 9: ");
+		multiplicando = in.nextInt();
+
+		if (multiplicando > 0 && multiplicando < 10) {
+			
+			for (multiplicador = 0; multiplicador <= 10; multiplicador++) {
+				resp = multiplicando * multiplicador;
+				System.out.println(multiplicando + " * " + multiplicador + " = " + resp);
+			}
+			
+		} else {
+			System.out.println("\nErro: número digitado não está entre 1 e 9.");
+		}
+
+		System.out.println("\nExercício 3: tuabuada do 1 até 10:");
+		System.out.println( "\nTabuada de 1 até 10:");
+				
+		for (multiplicando = 1; multiplicando <= 10; multiplicando++) {
+			System.out.println("\nTabuada do " + multiplicando);
+			for (multiplicador = 0; multiplicador <= 10; multiplicador++) {
+				System.out.println(multiplicando + " * " + multiplicador + " = " + multiplicando * multiplicador);
+			}
+		}
+
+		/*
+		 * String[] frutas = {"uva", "maça", "Limão", "pera"};
+		 * 
+		 * 
+		 * for(int i = 0; i<frutas.length; i++ ) {
+		 * 
+		 * System.out.println(i+1 + " - " + frutas[i]);
+		 * 
+		 * }
+		 * 
+		 * 
+		 * 
+		 */
+
+	}
+}

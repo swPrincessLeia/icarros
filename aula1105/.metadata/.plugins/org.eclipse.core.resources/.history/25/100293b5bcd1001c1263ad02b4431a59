@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class ProcessaTabuada {
+
+	public static void main(String[] args) {
+
+		int numero;
+		int tabuada;
+
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("\n______________________________________________________________"
+				+ "\nExercício 1: informar um número e retornar a tabuada:"
+				+ "\n______________________________________________________________");
+		System.out.println("\nDigite o número o qual deseja saber a tabuada");
+		numero = in.nextInt();
+		{
+			System.out.println("\nTabuada do número " + numero + " é: \n");
+			for (int count = 0; count <= 10; count++) {
+				tabuada = count * numero;
+				System.out.println(count + "*" + numero + " = " + tabuada);
+			}
+		}
+
+		System.out.println("\n______________________________________________________________"
+				+ "\nExercício 2: informar um número de 1 a 9 e retornar a tabuada:"
+				+ "\n______________________________________________________________");
+
+		System.out.println("\nDigite um numero entre 1 e 9: ");
+		numero = in.nextInt();
+
+		if (numero > 0 && numero < 10) {
+			for (int count = 0; count <= 10; count++) {
+				tabuada = count * numero;
+				System.out.println(count + "*" + numero + " = " + tabuada);
+			}
+		} else {
+			System.out.println("\nO número digitado não está entre 1 e 9." + "\nPrograma encerrado.");
+		}
+		
+
+		System.out.println("\n______________________________________________________________" + 
+							"\nTabuada de 1 até 10:" 	+ 
+							"\n______________________________________________________________");
+		for (int multiplicando = 0; multiplicando <= 10; multiplicando++) {
+			System.out.println("\nTabuada do " + multiplicando);
+			for (int multiplicador = 0; multiplicador <= 10; multiplicador++) {
+				System.out.println(multiplicando + " * " + multiplicador + " = " + multiplicando * multiplicador);
+			}
+		}
+
+		/*
+		 * String[] frutas = {"uva", "maça", "Limão", "pera"};
+		 * 
+		 * 
+		 * for(int i = 0; i<frutas.length; i++ ) {
+		 * 
+		 * System.out.println(i+1 + " - " + frutas[i]);
+		 * 
+		 * }
+		 * 
+		 * 
+		 * 
+		 */
+
+	}
+}

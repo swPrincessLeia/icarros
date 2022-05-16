@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class ArrayExemplo {
+
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		String[] frutas = { "uva", "melão", "morango", "laranja" };
+
+		System.out.println(frutas.length);
+		
+		//for (int i = 0; i < frutas.length; i++) {
+
+			//System.out.println(i + 1 + " - " + frutas[i]);
+
+		//}
+
+	}
+}

@@ -1,0 +1,150 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProcessaArrayList {
+
+	public static void main(String[] args) {
+		ArrayList<String> produtos = new ArrayList<String>();
+		ArrayList<Double> precos = new ArrayList<Double>();
+
+		teste(produtos, precos);
+
+	}
+
+	public static void teste(ArrayList<String> produtos, ArrayList<Double> precos) {
+
+		Scanner in = new Scanner(System.in);
+		String msg = "10- voltar para o menu de opções \n 0-encerrar programa";
+
+		int menu1 = 10;
+		int tam = 2;
+
+		String menu = "Bem-vindo!" + "\n1 - Cadastrar" + "\n2 - Consultar" + "\n3 - Visualizar" + "\n4 - Excluir"
+				+ "\n5 - Alterar registro";
+		if (menu1 == 0) {
+			System.out.println("flw");
+		} else if (menu1 == 10) {
+			System.out.println(menu);
+
+			int op = in.nextInt();
+
+			switch (op) {
+
+			case 1:
+				System.out.println("Cadastro");
+
+				for (int i = 0; i < tam; i++) {
+					System.out.println("passouno for "+ 11);
+					in.nextLine();
+					System.out.print("Digite o nome do produto eletrônico: ");
+					String nomeProduto = in.nextLine();
+					produtos.add(nomeProduto);
+					// System.out.println(produtos);
+
+					System.out.print("Digite o preço do produto eletrônico: ");
+					double preco = in.nextDouble();
+					precos.add(preco);
+					// System.out.println(precos);
+					// System.out.println(produtos.size());
+					if (i<tam) {
+						System.out.println("i: "+ i +"tam "+ tam);
+						System.out.println(msg);
+						menu1 = in.nextInt();
+						teste2(menu1, produtos, precos);
+
+					} else {
+						System.out.print("lista cheia, por favor exclua um produto: ");
+						System.out.println(msg);
+						menu1 = in.nextInt();
+						teste2(menu1, produtos, precos);
+					}
+
+				}
+
+				break;
+
+			case 2:
+				System.out.println("Consultar");
+
+				System.out.println("cosultar: informa o id do produto");
+				int id = in.nextInt();
+				System.out.println("produto: " + produtos.get(id - 1) + "\nPreço: " + precos.get(id - 1));
+
+				System.out.println(msg);
+				menu1 = in.nextInt();
+				teste2(menu1, produtos, precos);
+				break;
+
+			case 3:
+				System.out.println("vizualizar");
+
+				for (int m = 0; m < produtos.size(); m++) {
+
+					System.out.println("produto: " + produtos.get(m) + "\nPreço: " + precos.get(m));
+				}
+				System.out.println(msg);
+				menu1 = in.nextInt();
+				teste2(menu1, produtos, precos);
+				break;
+
+			case 4:
+				System.out.println("Remover um produto: informa o id do produto");
+				int r = in.nextInt();
+				System.out.println("produto: " + produtos.remove(r - 1) + "\nPreço: " + precos.remove(r - 1));
+				for (int m = 0; m < produtos.size(); m++) {
+
+					System.out.println("produto: " + produtos.get(m) + "\nPreço: " + precos.get(m));
+				}
+				System.out.println(msg);
+				menu1 = in.nextInt();
+				teste2(menu1, produtos, precos);
+				break;
+
+			case 5:
+				System.out.println("Alterar o nome do produto: informa o id do produto");
+				int t = in.nextInt();
+				in.nextLine();
+				System.out.println(" informa o novo nome");
+				String u = in.nextLine();
+
+				System.out.println("Alterar o preço do produto: informa o id do produto");
+				int te = in.nextInt();
+				in.nextLine();
+				System.out.println("informa o no preço");
+				double p = in.nextDouble();
+
+				produtos.set(t - 1, u);
+				precos.set(te - 1, p);
+
+				for (int m = 0; m < produtos.size(); m++) {
+
+					System.out.println("produto: " + produtos.get(m) + "\nPreço: " + precos.get(m));
+				}
+				System.out.println(msg);
+				menu1 = in.nextInt();
+				teste2(menu1, produtos, precos);
+				break;
+
+			default:
+				System.out.println("Opção inválida");
+				System.out.println(msg);
+				menu1 = in.nextInt();
+				teste2(menu1, produtos, precos);
+			}
+
+		}
+
+	}
+
+	public static void teste2(int menu1, ArrayList<String> produtos, ArrayList<Double> precos) {
+
+		if (menu1 == 10) {
+			teste(produtos, precos);
+		} else {
+			System.out.println("Boa noite!");
+
+		}
+	}
+
+}

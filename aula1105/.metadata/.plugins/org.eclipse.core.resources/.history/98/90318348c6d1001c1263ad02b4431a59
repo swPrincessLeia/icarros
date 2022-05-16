@@ -1,0 +1,62 @@
+
+import java.util.Scanner;
+
+public class ProcessaNotas {
+
+public static void main(String[] args) {
+		
+
+		Scanner in = new Scanner(System.in);
+		
+		String[] alunos = new String[3];
+		Double[] prova1 = new Double[3], 
+				 prova2 = new Double[3], 
+				 media = new Double[3];
+		
+				
+		System.out.println("\nExercício 5: Calcular a média da nota");
+
+		for(int i = 0;  i <alunos.length; i++) {		
+			System.out.println("Informe o nome do aluno:");			
+			alunos[i]=  in.nextLine();
+	
+			System.out.println("Informe suas notas");
+	
+			System.out.println("Prova 1:");
+			prova1[i] = in.nextDouble();
+			System.out.println("Prova 2:");
+			prova2[i] = in.nextDouble();		
+			media[i]= (prova1[i]+prova2[i])/2;
+	
+	if(media[i] > 7){
+			System.out.println("\nAluno: " + alunos[i] +
+					   "\nNota 1: " + prova1[i]+
+					   "\nNota 2: " + prova2[i]+
+					    "\nNota 4: " + media[i] +
+					    "\nParabéns aprovado!"); 
+	}else {
+		System.out.println("\nAluno: " + alunos[i] +
+			   "\nNota 1: " + prova1[i]+
+			   "\nNota 2: " + prova2[i]+
+			    "\nNota 4: " + media[i] +
+			    "\nReprovado, estude mais!"); 
+		
+	}
+	
+	}
+	
+	System.out.println("\nSua média é: " + media );
+		}					   
+			
+	if(media<5) {
+		System.out.println("Aluno reprovado");		
+	}else if(media==5) {
+		System.out.println("Aluno em recuperação");
+	} else {
+		System.out.println("Aluno aprovado");
+	}
+		 
+	
+	}
+
+}
