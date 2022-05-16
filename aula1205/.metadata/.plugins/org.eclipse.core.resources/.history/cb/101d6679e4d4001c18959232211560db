@@ -1,0 +1,24 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class testetry {
+	
+	public static void main(String[]args) {
+	
+	
+		boolean success = false;
+
+		while (!success)
+		{
+		    try {
+		        System.out.println("Please enter the name of the file: ");
+		        Scanner in = new Scanner(System.in);
+		        File file = new File(in.next());
+		        Scanner scan =  new Scanner(file);
+		        success = true;
+		    } catch (FileNotFoundException e) {
+		        e.printStackTrace();
+		        System.out.println("File does not exist please try again. ");
+		    }
+		}}

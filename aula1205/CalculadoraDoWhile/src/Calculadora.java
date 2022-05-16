@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class Calculadora {
+
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		double valor1, valor2, resp;
+		int op;
+		
+		try {
+			
+			do {
+
+				System.out.println("\nDigite a opção desejada" + 
+									"\n1 - Adição " + 
+									 "\n2 - Subtração " + 
+									  "\n3 - Divisão " +
+									   "\n4 - Multiplicação " + 
+										"\n5 - Sair ");
+
+				op = in.nextInt();
+				if (op == 5) {
+
+					System.out.println("\nAdeus!");
+					break;
+				} else {
+
+					switch (op) {
+
+					case 1:
+						System.out.println("Soma\nDigite o Valor 1");
+						valor1 = in.nextDouble();
+						System.out.println("Digite o Valor 2");
+						valor2 = in.nextDouble();
+						resp = valor1 + valor2;
+						System.out.println("Resposta: " + resp);
+						break;
+
+					case 2:
+						System.out.println("Subtração\nDigite o Valor 1");
+						valor1 = in.nextDouble();
+						System.out.println("Digite o Valor 2");
+						valor2 = in.nextDouble();
+						resp = valor1 - valor2;
+						System.out.println("Resposta: " + resp);
+						break;
+
+					case 3:
+						System.out.println("Divisão\nDigite o Valor 1");
+						valor1 = in.nextDouble();
+						System.out.println("Digite o Valor 2");
+						valor2 = in.nextDouble();
+						resp = valor1 / valor2;
+						System.out.println("Resposta: " + resp);
+						break;
+
+					case 4:
+						System.out.println("Multiplicação\nDigite o Valor 1");
+						valor1 = in.nextDouble();
+						System.out.println("Digite o Valor 2");
+						valor2 = in.nextDouble();
+						resp = valor1 * valor2;
+						System.out.println("Resposta: " + resp);
+						break;
+					case 5:
+						System.out.println("Tchau!");
+						break;
+					default:
+						System.out.println("\nOpção de número inválida!");
+
+					}
+				}
+
+			} while (op!= 5);
+
+		} catch (Exception e) {
+			System.out.println("Você não digitou um número. Programa encerrado! :/");
+		}
+	}
+}

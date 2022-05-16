@@ -1,0 +1,148 @@
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Objects;
+import java.util.Scanner;
+
+public class ProcessaDadosHashMap {
+
+	public static void main(String[] args) {
+		// Entregar
+		Scanner in = new Scanner(System.in);
+		HashMap<Produto, Integer> marcasProdutos = new HashMap<Produto, Integer>();
+		int op;
+		int count = 0;
+		boolean continua = true;
+
+	
+			for(int i =0; i<2;i++) {
+
+				try {
+				System.out.println("\nDigite a opção desejada" + "\n1 - Inserir registro " + "\n2 - Lista de Registro "
+						+ "\n3 - Consultar Registro " + "\n4 - Excluir registro " + "\n5 - Sair ");
+
+				op = in.nextInt();
+				in.nextLine();
+
+				switch (op) {
+				case 1:
+					if (count > 4) {
+						System.out.println("Lista de cheia, exclua algum produto para adicionais mais produtos!");
+					} else {
+						while (count <= 4) {
+							System.out.println("\nProduto " + (count + 1) + " de 5" + "\nDigite o nome do produto");
+							String nomeProduto = in.nextLine();
+							System.out.println("Produto " + (count + 1) + " de 5" + "\nDigite a marca");
+							String marca = in.nextLine();
+							System.out.println("Produto " + (count + 1) + " de 5" + "\nDigite o preço");
+							double preco = in.nextDouble();
+							Produto produto = new Produto(nomeProduto, marca, preco);
+							in.nextLine();
+							marcasProdutos.put(produto, count);
+							count++;
+						}
+					}
+					continua = true;
+					break;
+
+				case 2:
+					lista(marcasProdutos, count);
+					continua = true;
+					break;
+
+				case 3:
+					if (count == 0) {
+						System.out.println("A lista de produtos está vazia!");
+						break;
+					}
+					System.out.println("\nDigite a marca que deseja consultar a lista de produtos");
+					String cons = in.nextLine();
+					int countaMarca = 0;
+
+					for (Produto key : marcasProdutos.keySet()) {
+						if (Objects.equals(key.getMarca(), cons)) {
+							System.out.println("Equals id: " + marcasProdutos.get(key) + "\nMarca: " + key.getMarca()
+									+ "\nItem: " + key.nomeProduto + "\nPreço: " + key.preco);
+							System.out.println("_______________________________");
+							countaMarca++;
+						}
+						continue;
+					}
+					if (countaMarca == 0) {
+						System.out.println("Marca não econtrada!");
+					}
+					continua = true;
+					break;
+
+				case 4:
+					boolean resp = lista(marcasProdutos, count);
+					if (resp == true) {
+						break;
+					}
+					int verificaIdProduto = 0;
+					System.out.println("\nDigite o id do produto que deseja excluir");
+					int idProduto = in.nextInt();
+
+					for (Produto key : marcasProdutos.keySet()) {
+						if (marcasProdutos.get(key) == idProduto) {
+							marcasProdutos.remove(key);
+							count--;
+							verificaIdProduto++;
+							System.out.println("\nProduto removido com sucesso!");
+							break;
+						}
+					}
+					if (verificaIdProduto == 0) {
+						System.out.println("Id não econtrado!");
+					}
+					continua = true;
+					break;
+
+				case 5:
+					System.out.println("Programa encerrado!" + "\n " + " 	                   /~\\   Oh céus\r\n"
+							+ "                          (O O) _/                 \r\n"
+							+ "                          _\\=/_                         \r\n"
+							+ "          ___            /  _  \\                         \r\n"
+							+ "         / ()\\          //|/.\\|\\\\                        \r\n"
+							+ "       _|_____|_       ||  \\_/  ||                       \r\n"
+							+ "      | | === | |      || |\\ /| ||                       \r\n"
+							+ "      |_|  O  |_|       # \\_ _/ #                        \r\n"
+							+ "       ||  O  ||          | | |                          \r\n"
+							+ "       ||__*__||          | | |                          \r\n"
+							+ "      |~ \\___/ ~|         []|[]                          \r\n"
+							+ "      /=\\ /=\\ /=\\         | | |                          \r\n"
+							+ "______[_]_[_]_[_]________/_]_[_\\_____" + "");
+					continua = false;
+					break;
+
+				default:
+					System.out.println("\nOpção de número inválida!");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Opção inválida. Programa encerrado!");
+				break;
+			}
+
+		} 
+
+	}
+	
+	
+	
+	
+
+	public static boolean lista(HashMap<Produto, Integer> marcasProdutos, int count) {
+
+		if (count == 0) {
+			System.out.println("A lista de produtos está vazia");
+			return true;
+		} else {
+
+			for (Produto key : marcasProdutos.keySet()) {
+				System.out.println("id: " + marcasProdutos.get(key) + "\nMarca: " + key.getMarca() + "\nItem: "
+						+ key.getNomeProduto() + "\nPreço: " + key.getPreco());
+				System.out.println("_______________________________");
+			}
+			return false;
+		}
+	}
+}

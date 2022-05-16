@@ -1,0 +1,25 @@
+public class Produto {
+
+	String nomeProduto, marca;
+	double preco;
+
+	public Produto(String nomeProduto, String marca, double preco) {
+		this.nomeProduto = nomeProduto;
+		this.marca = marca;
+		this.preco = preco;
+
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+}

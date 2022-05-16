@@ -1,0 +1,22 @@
+import java.util.HashMap;
+
+public class ProcessaDados {
+	
+	public static void main(String[]args) {
+		
+		HashMap<String,String> capitaisCidades = new HashMap<String,String>();
+		capitaisCidades.put("São Paulo", "São Paulo");
+		capitaisCidades.put("Salvador", "Bahia");
+		capitaisCidades.put("Porto Alegra", "Rio Grande do Sul");
+		System.out.println(capitaisCidades);
+		
+		System.out.println(capitaisCidades.get("Salvador"));
+		
+		
+		
+		
+		
+	}
+	
+
+}

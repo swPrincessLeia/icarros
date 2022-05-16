@@ -1,0 +1,42 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProcessaDados {
+	
+	public static void main(String[]args) {
+		
+		
+		Scanner in = new Scanner(System.in);
+		
+		HashMap<String,String> capitaisCidades = new HashMap<String,String>();
+		
+		HashMap<Integer,String> carros = new HashMap<Integer,String>();
+		
+		carros.put(1, "polo");
+		carros.put(2, "corsa");
+		carros.put(3, "uno");
+		
+		
+		//capitaisCidades.put("São Paulo", "São Paulo");
+		capitaisCidades.put("Salvador", "Bahia");
+		//capitaisCidades.put("Porto Alegra", "Rio Grande do Sul");
+		capitaisCidades.put("Porto", "Sul");
+		System.out.println(capitaisCidades);
+		
+		System.out.println("Digite a cidade para ser removida");
+		String palavra = in.nextLine();
+	
+		//System.out.println(capitaisCidades.get("Salvador"));
+		System.out.println(capitaisCidades.remove(palavra));
+		System.out.println(capitaisCidades);
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+
+}

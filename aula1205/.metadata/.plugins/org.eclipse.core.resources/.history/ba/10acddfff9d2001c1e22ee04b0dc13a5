@@ -1,0 +1,25 @@
+
+public class ProcessaDoWhile {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] carros = {"gol", "uno", "ka", "hb20"};
+		int count = 0;
+
+		do {
+			System.out.println(carros[count]);
+			count++;
+		} while (count < 5);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

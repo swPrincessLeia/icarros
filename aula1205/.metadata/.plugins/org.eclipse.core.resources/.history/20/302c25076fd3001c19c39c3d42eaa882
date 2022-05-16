@@ -1,0 +1,190 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProcessaDados {
+	
+	public static void main(String[]args) {
+		
+		
+		Scanner in = new Scanner(System.in);
+		
+		
+		
+	/*	HashMap<Integer,String> carros = new HashMap<Integer,String>();
+		
+		carros.put(1, "polo");
+		carros.put(2, "corsa");
+		carros.put(3, "uno");
+		
+		System.out.println(carros);
+		
+		for(int i=1; carros.size()+1>i; i++) {
+			
+			System.out.println(carros.get(i));
+			
+		}
+		
+		
+		
+		HashMap<String,String> capitaisCidades = new HashMap<String,String>();
+		//capitaisCidades.put("São Paulo", "São Paulo");
+		capitaisCidades.put("Salvador", "Bahia");
+		//capitaisCidades.put("Porto Alegra", "Rio Grande do Sul");
+		capitaisCidades.put("Porto", "Sul");
+		System.out.println(capitaisCidades);
+		
+		System.out.println("Digite a cidade para ser removida");
+		String palavra = in.nextLine();
+	
+		//System.out.println(capitaisCidades.get("Salvador"));
+		System.out.println(capitaisCidades.remove(palavra));
+		System.out.println(capitaisCidades);
+		
+		*/
+		
+	HashMap<String,String> map = new HashMap<String, String>();
+	map.put("p1", "p2");
+	map.put("b1", "b2");
+	map.put("a1", "a2");
+	
+	for(String key : map.values()) {
+		
+		System.out.println("valor = " + key);
+	}
+		
+	for(HashMap.Entry<String, String> entry: map.entrySet()) {
+		
+		System.out.println(entry.getKey()+" " + entry.getValue());
+		
+		
+	}
+		
+		
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * import java.util.HashMap;
+import java.util.Objects;
+import java.util.Scanner;
+
+public class ProcessaDadosHashMap {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		HashMap<Produto, Integer> marcasProdutos = new HashMap<Produto, Integer>();
+//prosuto, valor e  marca
+		int op;
+
+		try {
+
+			do {
+
+				System.out.println("\nDigite a opção desejada" + "\n1 - Inserir registro " + "\n2 - Lista de Registro "
+						+ "\n3 - Consultar Registro " + "\n4 - Excluir registro " + "\n5 - Sair ");
+
+				op = in.nextInt();
+				in.nextLine();
+				if (op == 5) {
+
+					System.out.println("\nAdeus!");
+					break;
+				} else {
+
+					switch (op) {
+					case 1:
+						int count = 1;
+						while (count <= 2) {
+							// 5 dados
+							System.out.println("\nDigite o nome do produto");
+							String produto = in.nextLine();
+							System.out.println("\nDigite a marca");
+							String marca = in.nextLine();
+							System.out.println("\nDigite o preço");
+							double preco = in.nextDouble();
+							Produto p = new Produto(produto, marca, preco);
+							in.nextLine();
+							marcasProdutos.put(p, count);
+							System.out.println(p.getMarca() + p.getPreco() + p.getNomeProduto());
+							count++;
+						}
+						break;
+					case 2:
+						for (Produto key : marcasProdutos.keySet()) {
+							System.out.println("id: " + marcasProdutos.get(key) + "\nMarca: " + key.getMarca()
+									+ "\nItem: " + key.nomeProduto + "\nPreço: " + key.preco);
+							System.out.println("_______________________________");
+						}
+						break;
+					case 3:// listar pela marca
+						System.out.println("\nDigite a marca que deseja consultar");
+						String cons = in.nextLine();
+						for (Produto key : marcasProdutos.keySet()) {
+							if (Objects.equals(key.getMarca(), cons)) {
+								System.out.println("Equals id: " + marcasProdutos.get(key) + "\nMarca: "
+										+ key.getMarca() + "\nItem: " + key.nomeProduto + "\nPreço: " + key.preco);
+								System.out.println("_______________________________");
+
+							} else {
+								System.out.println("Marca não encontrada!");
+								break;
+							}
+						}
+						break;
+
+					case 4:// excluir produto específico
+						System.out.println("\nDigite o id do produto que deseja excluir");
+						int id = in.nextInt();
+						for (Produto key : marcasProdutos.keySet()) {
+							System.out.println(marcasProdutos.get(key) + " " + id);
+							if (marcasProdutos.get(key) == id) {
+								marcasProdutos.remove(key);
+							}
+						}
+
+						break;
+
+					case 5:
+						System.out.println("Tchau!");
+						break;
+					default:
+						System.out.println("\nOpção de número inválida!");
+
+					}
+				}
+
+			} while (op == 1 || op == 2 || op == 3 || op == 4 || op == 5);
+
+		} catch (
+
+		Exception e) {
+			System.out.println("Hum, você não digitou um número! :/");
+		}
+
+	}
+
+}
+*/
+ 
+
+
+
+
+
+
