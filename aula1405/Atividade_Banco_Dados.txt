@@ -1,0 +1,82 @@
+-- --------------------------------------------------------------------------------------------------------------
+
+use icarros;
+
+/* Criar uma tabela de funcionários com os campos abaixo:
+id_funcionario, 
+nome_funcionario,
+data_nascimento_funcionario
+funcao_funcionario
+salario_bruto_funcionario
+email_funcionario*/
+
+create table funcionarios(
+id_funcionario int not null auto_increment primary key,
+nome_funcionario varchar(50) not null,
+data_nascimento_funcionario date,
+salario_bruto_funcionario decimal(12,2) not null,
+email_funcionario varchar(80) not null,
+dependentes_funcionario boolean
+);
+
+-- --------------------------------------------------------------------------------------------------------------
+-- Inserir 6 registros
+
+INSERT INTO funcionarios (`nome_funcionario`,`data_nascimento_funcionario`,
+						  `salario_bruto_funcionario`,`email_funcionario`,
+                          `dependentes_funcionario`)
+VALUES
+  ("Lucian C. House","2001/11/24","2500.00","quam.elementum@icloud.net","1"),
+  ("Leandra Vazquez","2000/02/11","3759.00","purus.ac@google.couk","0"),
+  ("Maxwell V. Graham","1985/09/03","2000.00","montes@yahoo.net","1"),
+  ("Oliver S. Farmer","1977/04/12","3000.","diam.vel.arcu@aol.couk","0"),
+  ("Cheryl R. Hopkins","1989/05/16","8000.00","leo.in.lobortis@outlook.org","0"),
+  ("Idola Terry","1998/06/20","6400.00","nulla.eu.neque@aol.couk","0");
+  
+ALTER TABLE funcionarios ADD  funcao_funcionario varchar(50) not null after data_nascimento_funcionario ;
+UPDATE funcionarios SET funcao_funcionario = 'Pesssoa desenvoldevora' WHERE id_funcionario in (7, 8, 11, 12);
+UPDATE funcionarios SET funcao_funcionario = 'Analista de suporte' WHERE id_funcionario in (9,10);
+
+-- --------------------------------------------------------------------------------------------------------------
+-- Selects
+-- -------------------------------------------------------------------------------------------------------------- 
+
+-- a) Mostrar todos os campos e todos os registros
+
+select * from funcionarios;
+
+SELECT nome_funcionario as 'Nome', 
+salario_bruto_funcionario as 'Salário', 
+funcao_funcionario as 'Atividade',
+email_funcionario as 'E-mail',
+dependentes_funcionario as 'Dependente',
+DATE_FORMAT(data_nascimento_funcionario,'%d/%m/%Y') AS 'Data de nascimento' FROM funcionarios
+;
+
+-- --------------------------------------------------------------------------------------------------------------
+
+-- b) Mostrar somente os campos nome_funcionario e função_funcionario e todos os registros
+
+SELECT nome_funcionario as 'Nome', 
+funcao_funcionario as 'Atividade'
+FROM funcionarios;
+
+-- --------------------------------------------------------------------------------------------------------------
+
+-- c) Mostrar todos os campos e os registros ordenados pelo campo função_funcionário.
+
+select * from funcionarios order by funcao_funcionario;
+
+-- --------------------------------------------------------------------------------------------------------------
+
+-- d) Filtrar os funcionários pelo campo nome_funcionario nome% 
+
+select * from funcionarios where nome_funcionario like "Maxwell%";
+select * from funcionarios where nome_funcionario like "%er";
+select * from funcionarios  where nome_funcionario like "%er%";
+
+-- Fazer um range pelo campo Id mostrando somente os registros 3 até 5. (9 até 11)
+-- select * from funcionarios  where  id_funcionario  between 3 and 5;
+select * from funcionarios  where  id_funcionario  between 9 and 11;
+
+-- --------------------------------------------------------------------------------------------------------------
