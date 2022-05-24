@@ -1,0 +1,10 @@
+
+public class Scanner {
+	
+	double precoImpressora = 180.00;
+
+	public void retornaPreco() {
+		System.out.println("R$ " + precoImpressora);
+	}
+
+}

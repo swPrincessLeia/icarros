@@ -1,0 +1,9 @@
+
+public class MsgPreco {
+
+	public String msgPrecoComplementa(String produto) {
+		String msg = "\nPreço" + produto + ": R$ ";
+		return msg;
+	}
+
+}

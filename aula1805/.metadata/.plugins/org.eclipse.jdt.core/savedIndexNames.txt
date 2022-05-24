@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\danie\Downloads\Icarros\icarros-aulas\icarros1805\.metadata\.plugins\org.eclipse.jdt.core
+1831104751.index
+3530788382.index
+534560231.index
+2707229618.index
+1865797976.index

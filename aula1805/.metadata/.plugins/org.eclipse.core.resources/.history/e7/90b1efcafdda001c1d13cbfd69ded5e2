@@ -1,0 +1,8 @@
+
+public class Subtracao {
+	public String sinal = " - ";
+	public double subtrair(double valorA, double valorB) {
+		return valorA - valorB;
+	}
+
+}

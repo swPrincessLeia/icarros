@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+
+public class ExecutaLista {
+
+	public static void main(String[] args) {
+		 
+		int count = 0;
+		
+		Collection<String> contatosu = new LinkedList<String>();	
+		
+		Collection<String> contatos1  = new LinkedList<String>();
+		contatos1.add("Alexandre - ale@gama.com.br");
+		contatos1.add("Vera - vera@gama.com.br");
+		contatos1.add("Vera - vera@gama.com.br");
+		contatos1.add("Alex - alex@gama.com.br");
+		contatos1.add("Bia - bia@gama.com.br");
+		contatosu.addAll(contatos1 );
+		
+		
+		
+		ArrayList<GetContato> contatos = new ArrayList<GetContato>();
+		
+		GetContato contato1 = new GetContato("Alexandre", "ale@gama.com.br");
+		GetContato contato2 = new GetContato("Vera", "vera@gama.com.br");
+		GetContato contato3 = new GetContato("Vera", "vera@gama.com.br");
+		GetContato contato4 = new GetContato("Alex", "alex@gama.com.br");
+		GetContato contato5 = new GetContato("Bia", "bia@gama.com.br");
+
+		contatos.add(contato1);
+		contatos.add(contato2);
+		contatos.add(contato3);
+		contatos.add(contato4);
+		contatos.add(contato5);
+
+		// retorna total de registros
+		System.out.println("total de dados cadastrados: " + contatos.size());
+		
+
+		// retora o registro número 2
+		for (GetContato c : contatos) {
+			if (count == 1) {
+				System.out.println("Registro número 2: " + c.getNome() + c.getEmail());
+				break;
+			}
+			count++;
+		}
+
+		System.out.println("\nLista completa\n");
+
+		for (GetContato c : contatos) {
+			System.out.println(c.getNome() + " - " + c.getEmail());
+		}
+
+		// Remover a bia :/
+		contatos.remove (contatos.size()-1); //remover último elemento
+
+		
+		for (GetContato c : contatos) {
+			
+			if (c.getNome().equals("Bia")) {
+				contatos.remove(c);
+				System.out.println("\nBia removida :/\n");
+				break;
+			}
+		}
+
+		System.out.println("\nLista sem  a bia\n");
+		for (GetContato c : contatos) {
+			System.out.println(c.getNome() + " - " + c.getEmail());
+		}
+	}
+
+}

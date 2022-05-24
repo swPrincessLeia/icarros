@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+/*Projeto:ExecutaClassesMetodos
+
+criar 5 classes de retorno
+
+Mostra preço mouse   R$ 35,00
+
+Mostra preço teclado R$ 58,00
+
+Mostra preço impressora R$ 380,00
+
+Mostra preço scanner R$ 180,00
+
+Mostra preço monitor R$ 420,00
+
+classe:ProcessaTudo
+
+Case
+
+1 - Mouse
+
+2 - Teclado
+
+3 - Impressora
+
+4 - Scanner
+
+5 - Monitor
+
+6 - Sair
+*/
+
+public class ProcessaTudo {
+	
+	public static void main(String[] args) {
+		
+		
+		 Scanner in = new Scanner(System.in);
+		
+		 System.out.println("Informe a opção desejada " +
+				 			"\n1 - "	);
+		
+
+	}
+
+}

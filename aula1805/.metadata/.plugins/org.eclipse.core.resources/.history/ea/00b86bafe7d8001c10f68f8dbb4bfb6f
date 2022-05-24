@@ -1,0 +1,9 @@
+
+public class TecladoPreco {
+
+	double precoTeclado = 5800;
+
+	public void retornaPreco() {
+		System.out.println("R$ " + precoTeclado);
+	}
+}

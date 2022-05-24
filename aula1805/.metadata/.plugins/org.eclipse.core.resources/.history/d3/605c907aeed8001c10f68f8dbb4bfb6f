@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+/*Projeto:ExecutaClassesMetodos
+
+criar 5 classes de retorno
+
+Mostra preço mouse   R$ 35,00
+
+Mostra preço teclado R$ 58,00
+
+Mostra preço impressora R$ 380,00
+
+Mostra preço scanner R$ 180,00
+
+Mostra preço monitor R$ 420,00
+
+classe:ProcessaTudo
+
+Case
+
+1 - Mouse
+
+2 - Teclado
+
+3 - Impressora
+
+4 - Scanner
+
+5 - Monitor
+
+6 - Sair
+*/
+
+public class ProcessaTudo {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+
+		MousePreco mouse = new MousePreco();
+		TecladoPreco teclado = new TecladoPreco();
+		ImpressoraPreco impressora = new ImpressoraPreco();
+		ScannerPreco scanner = new ScannerPreco();
+		MonitorPreco monitor = new MonitorPreco();
+		boolean repete = true;
+		
+		//do while baseado nos exemplos dos colegas mostrado e aula!
+		do {
+			System.out.println("\nInforme a opção desejada " + "\n1 - Mouse" + "\n2 - Teclado" + "\n3 - Impressora"
+					+ "\n4 - Scanner" + "\n5 - Monitor" + "\n6 - Sair");
+			int opcaoMenu = entrada.nextInt();
+
+			switch (opcaoMenu) {
+
+			case 1:
+				mouse.msgPrecoMouse();
+				break;
+			case 2:
+				teclado.msgPrecoTeclado();
+				break;
+			case 3:
+				impressora.msgPrecoImpressora();
+				break;
+			case 4:
+				scanner.msgPrecoScanner();
+				break;
+			case 5:
+				monitor.msgPrecoMonitor();
+				break;
+			case 6:
+				System.out.println("Tchau!");
+				repete = false;
+				break;
+			default:
+				System.out.println("\nOpção inválida. Escolha uma opção entre 1 e 6.");
+
+			}
+		} while (repete);
+	}
+
+}

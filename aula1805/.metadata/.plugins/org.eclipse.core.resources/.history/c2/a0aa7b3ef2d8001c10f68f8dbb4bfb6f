@@ -1,0 +1,8 @@
+
+public class Subtracao {
+	
+	public double soma(double valorA, double valorB) {
+		return valorA + valorB;
+	}
+
+}

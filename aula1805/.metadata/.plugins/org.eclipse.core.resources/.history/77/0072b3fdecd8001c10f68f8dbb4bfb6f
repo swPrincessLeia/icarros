@@ -1,0 +1,11 @@
+
+public class ImpressoraPreco {
+	
+	double precoImpressora= 380.00;
+
+	public void retornaPreco() {
+		
+		System.out.println("R$ " + precoImpressora);
+	}
+
+}

@@ -1,0 +1,17 @@
+
+public class Soma {	
+	 
+String sinalSoma = " + ";
+
+
+
+	public double somar(double valorA, double valorB) {
+		
+		return valorA + valorB;
+	}
+	
+	public String getSinal() {
+	return sinalSoma;
+	}
+
+}

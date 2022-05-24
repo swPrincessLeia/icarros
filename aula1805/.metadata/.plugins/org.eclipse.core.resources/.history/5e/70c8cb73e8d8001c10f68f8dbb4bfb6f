@@ -1,0 +1,9 @@
+
+public class Monitor {
+	double precoImpressora= 420.00;
+
+	public void retornaPreco() {
+		System.out.println("R$ " + precoImpressora);
+	}
+	
+}

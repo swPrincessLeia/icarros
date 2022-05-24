@@ -1,0 +1,8 @@
+
+public class MsgProcessaCalculo {
+
+	public void msgCalcular(double valorA, double valorB, double resposta) {
+		System.out.println("\n" + valorA   + valorB + " = " + resposta);
+	}
+
+}

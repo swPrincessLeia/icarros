@@ -1,0 +1,68 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ChamaFuncoes {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+
+		Soma soma = new Soma();
+		Subtracao subtracao = new Subtracao();
+		Multiplicacao multiplicacao = new Multiplicacao();
+		Divisao divisao = new Divisao();
+		MsgProcessaCalculo msgCalculo = new MsgProcessaCalculo();
+		boolean repete = true;
+		double valorA, valorB;
+		int opcaoMenu =1;
+
+		// do{} while() baseado nos exemplos dos colegas mostrado em aula!
+		do {
+			 System.out.println("ENTROU 0." + "OP" + opcaoMenu);
+			//if(opcaoMenu>=1 || opcaoMenu>=5) 
+			System.out.println("\nInforme a opção desejada\n" + 
+								"\n1 - Somar" + 
+							     "\n2 - Subtrair" + 
+								  "\n3 - Multiplicar"+ 
+								   "\n4 - Dividir" +
+								    "\n5 - Sair");
+			
+			 opcaoMenu = entrada.nextInt();
+			 System.out.println("ENTROU 1." + "op" + opcaoMenu);
+			 
+			if (opcaoMenu == 5) {
+				System.out.println("\nPrograma ecerrado.");
+				repete = false;
+			}
+
+			if(opcaoMenu>=1 && opcaoMenu<=5)  {
+				System.out.println("\nDigite o Valor A");
+				valorA = entrada.nextDouble();
+				System.out.println("Digite o Valor B");
+				valorB = entrada.nextDouble();
+
+				switch (opcaoMenu) {
+
+				case 1:
+					msgCalculo.msgCalcular(valorA, valorB, soma.somar(valorA, valorB));
+					break;
+				case 2:
+					msgCalculo.msgCalcular(valorA, valorB, subtracao.subtrair(valorA, valorB));
+					break;
+				case 3:
+					msgCalculo.msgCalcular(valorA, valorB, multiplicacao.multiplicar(valorA, valorB));
+					break;
+				case 4:
+					msgCalculo.msgCalcular(valorA, valorB, divisao.dividir(valorA, valorB));
+					break;
+				default:
+					System.out.println("\nOpção inválida. Escolha uma opção entre 1 e 6.");
+
+				}}
+			
+
+		} while (repete);
+
+	}
+
+}

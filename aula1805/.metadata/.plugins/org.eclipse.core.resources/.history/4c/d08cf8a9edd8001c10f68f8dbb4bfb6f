@@ -1,0 +1,11 @@
+
+public class MonitorPreco {
+	
+	double precoMonitor= 420.00;
+
+	public void retornaPreco() {
+		
+		System.out.println("Preço: R$ " + precoMonitor);
+	}	
+	
+}

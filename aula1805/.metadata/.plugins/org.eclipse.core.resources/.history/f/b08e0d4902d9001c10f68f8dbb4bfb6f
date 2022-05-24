@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+
+public class ExecutaLista {
+
+	public static void main(String[] args) {
+
+		ArrayList<GetContato> contatos = new ArrayList<GetContato>();
+		int count = 0;
+
+		GetContato contato1 = new GetContato("Alexandre", "ale@gama.combr");
+		GetContato contato2 = new GetContato("Vera", "vera@gama.combr");
+		GetContato contato3 = new GetContato("Igor", "igor@gama.combr");
+		GetContato contato4 = new GetContato("Alex", "alex@gama.combr");
+		GetContato contato5 = new GetContato("Bia", "bia@gama.combr");
+
+		contatos.add(contato1);
+		contatos.add(contato2);
+		contatos.add(contato3);
+		contatos.add(contato4);
+		contatos.add(contato5);
+
+		// retorna total de registros
+		System.out.println("total de dados cadastrados: " + contatos.size());
+
+		// retora o registro número 2
+		for (GetContato c : contatos) {			
+			if (count == 1) {
+				System.out.println("Registro número 2: " + c.getNome() + c.getEmail());
+				break;
+
+			}
+			count++;
+		}
+		
+		System.out.println("\nLista completa");
+
+		for (GetContato c : contatos) {					
+				System.out.println(c.getNome() + c.getEmail());				
+		}
+
+		
+		
+
+		// Remover a bia :/
+		//System.out.println(contatos);
+
+		//for (GetContato c : contatos) {
+
+		//	System.out.println(count);
+		//	if (c.getNome().equals("Bia")) {
+		//		contatos.remove(c);
+	//			System.out.println("Bia removida :/");
+		//	}
+	//	}
+	//	
+		//System.out.println(contatos);
+
+	}
+
+}

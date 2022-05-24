@@ -1,0 +1,10 @@
+
+public class TecladoPreco {
+
+	double precoTeclado = 58.00;
+
+	public void msgPrecoeclado() {
+		
+		System.out.println("Preço: R$ " + precoTeclado);
+	}
+}

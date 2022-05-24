@@ -1,0 +1,8 @@
+
+public class Soma {
+	double valorA, valorB;
+	 public double soma(double valorA, double valorb) {
+		 return  valorA+ valorB;
+	 }
+
+}

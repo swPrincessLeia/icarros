@@ -1,0 +1,15 @@
+
+
+public class MousePreco {
+
+	double precoMouse = 35.00;
+	String mouse = "mouse";
+	MsgPreco msg = new MsgPreco();
+	
+
+	public void msgPrecoMouse() {
+		
+		System.out.println(msg.msgPrecoComplementa(mouse)+ precoMouse);
+	}
+	
+}

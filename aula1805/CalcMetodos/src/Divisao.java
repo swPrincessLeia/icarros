@@ -1,0 +1,12 @@
+
+public class Divisao {
+
+	public double dividir(double valorA, double valorB) {
+		return valorA / valorB;
+	}
+
+	public String sinal() {
+		String sinal = " / ";
+		return sinal;
+	}
+}

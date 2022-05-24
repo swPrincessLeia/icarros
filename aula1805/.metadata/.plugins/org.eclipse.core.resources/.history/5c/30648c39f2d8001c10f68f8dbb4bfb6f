@@ -1,0 +1,8 @@
+
+public class Multipicacao {
+	
+	public double soma(double valorA, double valorB) {
+		return valorA + valorB;
+	}
+
+}

@@ -1,0 +1,11 @@
+
+public class MousePreco {
+
+	double precoMouse = 35.00;
+
+	public void retornaPreco() {
+		
+		System.out.println("R$ " );
+	}
+	
+}

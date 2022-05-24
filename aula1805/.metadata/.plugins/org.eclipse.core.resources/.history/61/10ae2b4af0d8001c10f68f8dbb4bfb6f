@@ -1,0 +1,11 @@
+
+public class ScannerPreco {
+	
+	double precoScanner = 180.00;
+
+	public void msgPrecoScanner() {
+		
+		System.out.println("\nPreço scanner: R$ " + precoScanner);
+	}
+
+}
