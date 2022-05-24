@@ -1,0 +1,88 @@
+package Calculadora;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ProcessaCalculadora extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textValor1;
+	private JTextField textValor2;
+	private JTextField textResp;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ProcessaCalculadora frame = new ProcessaCalculadora();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ProcessaCalculadora() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblValor1 = new JLabel("1 Valor");
+		lblValor1.setBounds(56, 44, 46, 14);
+		contentPane.add(lblValor1);
+		
+		JLabel lblValor2 = new JLabel("2 Valor");
+		lblValor2.setBounds(56, 82, 46, 14);
+		contentPane.add(lblValor2);
+		
+		textValor1 = new JTextField();
+		textValor1.setBounds(49, 55, 86, 20);
+		contentPane.add(textValor1);
+		textValor1.setColumns(10);
+		
+		textValor2 = new JTextField();
+		textValor2.setBounds(56, 107, 86, 20);
+		contentPane.add(textValor2);
+		textValor2.setColumns(10);
+		
+		textResp = new JTextField();
+		textResp.setBounds(222, 79, 86, 20);
+		contentPane.add(textResp);
+		textResp.setColumns(10);
+		
+		JButton btnSoma = new JButton("Soma");
+		btnSoma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String num1, num2;
+				int resultado;
+				
+				num1 = 
+			}
+		});
+		btnSoma.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnSoma.setBounds(53, 180, 89, 23);
+		contentPane.add(btnSoma);
+	}
+
+}

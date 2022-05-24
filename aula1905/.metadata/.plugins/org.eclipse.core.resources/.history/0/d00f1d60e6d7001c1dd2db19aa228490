@@ -1,0 +1,176 @@
+package CalculadoraSimples;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class CalculadoraQuatroOpracoes extends JFrame {
+
+	private static final Component NULL = null;
+	private JPanel contentPane;
+	private JTextField textValorA;
+	private JTextField textValorB;
+	private JTextField textResultado;
+	public Double resultado = 0.0;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CalculadoraQuatroOpracoes frame = new CalculadoraQuatroOpracoes();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+
+	public double calcular(String valorA, String valorB, String operacao) {
+
+		try {
+			switch (operacao) {
+
+			case "+":
+				resultado = Double.parseDouble(valorA) + Double.parseDouble(valorB);
+				break;
+			case "-":
+				resultado = Double.parseDouble(valorA) - Double.parseDouble(valorB);
+				break;
+			case "/":
+				resultado = Double.parseDouble(valorA) / Double.parseDouble(valorB);
+				break;
+			case "*":
+				resultado = Double.parseDouble(valorA) * Double.parseDouble(valorB);
+				break;
+			default:
+				break;
+
+			}
+		} catch (InputMismatchException e) {
+
+		}
+		return resultado;
+
+	}
+	// }catch(Exception e) {
+
+	// textNome.getText().equals("")
+
+	// criando uma mensage, de alerta
+	// JOptionPane.showMessageDialog(NULL, "você não di!");
+	// textNome.requestFocus();
+	// return;
+	// }
+
+	// }
+
+	public CalculadoraQuatroOpracoes() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JLabel lblValorA = new JLabel("Valor A");
+		lblValorA.setFont(new Font("Candara", Font.BOLD, 14));
+		lblValorA.setForeground(new Color(255, 255, 255));
+		lblValorA.setBounds(135, 67, 54, 30);
+		contentPane.add(lblValorA);
+
+		JLabel lblValorB = new JLabel("Valor B");
+		lblValorB.setForeground(Color.WHITE);
+		lblValorB.setFont(new Font("Candara", Font.BOLD, 14));
+		lblValorB.setBounds(135, 129, 54, 30);
+		contentPane.add(lblValorB);
+
+		textValorA = new JTextField();
+		textValorA.setBounds(117, 98, 86, 20);
+		contentPane.add(textValorA);
+		textValorA.setColumns(10);
+
+		textValorB = new JTextField();
+		textValorB.setBounds(117, 169, 86, 20);
+		contentPane.add(textValorB);
+		textValorB.setColumns(10);
+
+		JButton btnSoma = new JButton("+");
+		btnSoma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultado = calcular(textValorA.getText(), textValorB.getText(), "+");
+
+			}
+		});
+		btnSoma.setBounds(222, 97, 41, 23);
+		contentPane.add(btnSoma);
+
+		JButton btnSubtracao = new JButton("-");
+		btnSubtracao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultado = calcular(textValorA.getText(), textValorB.getText(), "-");
+
+			}
+
+		});
+		btnSubtracao.setBounds(222, 131, 41, 23);
+		contentPane.add(btnSubtracao);
+
+		JButton btnDivisao = new JButton("/");
+		btnDivisao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultado = calcular(textValorA.getText(), textValorB.getText(), "/");
+			}
+
+		});
+		btnDivisao.setBounds(273, 97, 41, 22);
+		contentPane.add(btnDivisao);
+
+		JButton btnMultiplicacao = new JButton("*");
+		btnMultiplicacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resultado = calcular(textValorA.getText(), textValorB.getText(), "*");
+			}
+		});
+		btnMultiplicacao.setBounds(273, 131, 41, 23);
+		contentPane.add(btnMultiplicacao);
+
+		textResultado = new JTextField();
+		textResultado.setBounds(104, 36, 229, 20);
+		contentPane.add(textResultado);
+		textResultado.setColumns(10);
+
+		JButton btnIgual = new JButton("=");
+		btnIgual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				textResultado.setText(Double.toString(resultado));
+
+			}
+		});
+		btnIgual.setFont(new Font("Cambria", Font.BOLD, 14));
+		btnIgual.setBounds(232, 167, 76, 23);
+		contentPane.add(btnIgual);
+
+	}
+
+}

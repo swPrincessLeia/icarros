@@ -1,0 +1,130 @@
+package visitas;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class FrmPersonas extends JFrame {
+
+	protected static final Component NULL = null;
+	private JPanel contentPane;
+	private JTextField textNome;
+	private JButton btnEnviar;
+	private JLabel lblNewLabel_1;
+	private JButton btnNewButton;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmPersonas frame = new FrmPersonas();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FrmPersonas() {
+		setTitle("Calculadora");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nome:");
+		lblNewLabel.setForeground(Color.PINK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(32, 56, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		textNome = new JTextField();
+		textNome.setForeground(Color.LIGHT_GRAY);
+		textNome.setBounds(88, 54, 296, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLimpar.setBackground(Color.BLACK);
+		btnLimpar.setForeground(Color.PINK);
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//criando processo de limpeza do campo nome
+				textNome.setText(" ");
+				textNome.requestFocus();
+				
+			}
+		});
+		btnLimpar.setBounds(141, 99, 89, 23);
+		contentPane.add(btnLimpar);
+		
+		btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//desenvolvendo um alógica para monitorar o camp
+				
+				if(textNome.getText().isEmpty() || textNome.getText().isBlank()) {
+					//textNome.getText().equals("")
+					
+
+					//criando uma mensage, de alerta
+					JOptionPane.showMessageDialog(NULL, "O Preenchimento do campo nome é obrigatório!");
+					textNome.requestFocus();
+					return;
+					
+				}
+				
+			}
+		});
+		btnEnviar.setBackground(Color.BLACK);
+		btnEnviar.setForeground(Color.PINK);
+		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnEnviar.setBounds(240, 99, 89, 23);
+		contentPane.add(btnEnviar);
+		
+		lblNewLabel_1 = new JLabel("*");
+		lblNewLabel_1.setForeground(Color.PINK);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(394, 56, 28, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		btnNewButton = new JButton("Processar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//como vincular o conreudo do nosso campo em uma variável
+				String nome = 	textNome.getText();
+				JOptionPane.showMessageDialog(null, "Seja bem vindo " + nome);
+			}
+		});
+		btnNewButton.setBackground(Color.BLACK);
+		btnNewButton.setForeground(Color.PINK);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBounds(151, 169, 89, 23);
+		contentPane.add(btnNewButton);
+	}
+}

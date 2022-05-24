@@ -1,0 +1,77 @@
+package visitas;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class FrmPersonas extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textNome;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmPersonas frame = new FrmPersonas();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FrmPersonas() {
+		setTitle("Calculadora");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nome:");
+		lblNewLabel.setForeground(Color.PINK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(32, 56, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		textNome = new JTextField();
+		textNome.setForeground(Color.LIGHT_GRAY);
+		textNome.setText("    Informe seu nome");
+		textNome.setBounds(88, 54, 296, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBackground(Color.BLACK);
+		btnLimpar.setForeground(Color.PINK);
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//criando processo de limpeza do campo nome
+				textNome.setText(" ");
+				
+			}
+		});
+		btnLimpar.setBounds(170, 117, 89, 23);
+		contentPane.add(btnLimpar);
+	}
+}
