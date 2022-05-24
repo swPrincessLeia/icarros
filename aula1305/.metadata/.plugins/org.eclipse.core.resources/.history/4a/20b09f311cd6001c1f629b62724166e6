@@ -1,0 +1,27 @@
+
+public class ProcessaTryCatch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String frase = null;
+		String novafrase = null;
+		
+		try {
+			
+			
+			
+			novafrase = frase.toUpperCase();
+			
+		}
+		
+		catch(NullPointerException e) {
+			System.out.println("Se a frase inicial estiver nula, para solucionar o problema");
+						
+			
+			
+		}
+
+	}
+
+}

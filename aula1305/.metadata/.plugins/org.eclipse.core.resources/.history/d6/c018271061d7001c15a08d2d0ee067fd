@@ -1,0 +1,67 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Arrays;
+import java.util.List;
+
+public class ProcessaArquivoTryCatch {
+//entregar
+
+	/*
+	 * utilize try catch para escrever fisicamente o arquivo se o arquivo não
+	 * existir você terá uma exceção e mandar ele criar file writwr print
+	 */
+
+	public static void main(String[] args) throws IOException {
+		// entregar
+		// Acidinando todos os produtos numa lista.
+		// Ouvi sobre asList na aula, acho que foi o colega thales que comentou sobre
+		List<String> produtos = Arrays.asList("Mouse", "Teclado", "Scanner", "Impressora", "Monitor");
+
+		LocalDate data = LocalDate.of(2022, 5, 13);
+		LocalDate localDate = data;
+		System.out.print("Produtos Cadastrados ");
+		System.out.print(localDate.getDayOfWeek().ordinal() +
+				"\\" + localDate.getMonthValue() + 
+				"\\" + localDate.getYear());
+
+	
+
+		String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoTryCatch\\produtos.txt";
+		File arq = new File(path);
+
+		if (!new File(path).exists()) {
+
+			try {
+
+				// String path =
+				// "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoTryCatch\\produtos.txt";
+				FileWriter arquivo = new FileWriter(path);
+				PrintWriter gravarArquivo = new PrintWriter(arquivo);
+
+				gravarArquivo.printf("Produtos Cadastradoooos" + "\nData do cadastro: 13/0502022");
+				for (int resposta = 0; resposta < 5; resposta++) {
+
+					gravarArquivo.printf("\n" + produtos.get(resposta));
+				}
+				arquivo.close();
+
+			} catch (Exception e) {
+
+			} finally {
+
+				System.out.println("Arquivo ja existe");
+
+			}
+
+		}
+
+		System.out.println("Arquivo já existe");
+
+	}
+
+}

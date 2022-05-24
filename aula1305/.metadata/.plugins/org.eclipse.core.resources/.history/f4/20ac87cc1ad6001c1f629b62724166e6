@@ -1,0 +1,64 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class ProcessaArquivo {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		Scanner in = new Scanner(System.in);
+		int nome  = 5;
+		
+		int multiplicando, multiplicador;
+		
+		
+		String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoFisico\\teste.txt";
+		FileWriter arquivo = new FileWriter(path);
+		PrintWriter gravarArquivo = new PrintWriter(arquivo);
+	
+	for(int resposta=0; resposta <100; resposta++) {
+			
+		
+		for (multiplicando = 1; multiplicando <= 10; multiplicando++) {
+			gravarArquivo.printf("\nTabuada do %d ", multiplicando);
+			for (multiplicador = 0; multiplicador <= 10; multiplicador++) {
+				resposta = multiplicando * multiplicador;
+				gravarArquivo.printf("\nMultiplicando %d *multiplicador %d  = %d",multiplicando,multiplicador,resposta);
+			}
+		}
+				
+		
+	
+		
+	//	System.out.println("valor gravado " + i);
+		
+		
+		
+		}
+	
+		
+	arquivo.close();
+		
+		
+		
+		
+		
+		
+		
+			}
+		}
+		
+
+		//String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoFisico\\teste.txt";
+		//FileWriter arquivo = new FileWriter(path);
+
+		//PrintWriter gravarArquivo = new PrintWriter(arquivo);
+
+		//gravarArquivo.printf("Resuldado %s", nome);
+		//arquivo.close();
+
+		//System.out.println(nome);
+
+

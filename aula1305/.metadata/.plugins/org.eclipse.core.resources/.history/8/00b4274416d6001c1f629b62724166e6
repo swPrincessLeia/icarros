@@ -1,0 +1,36 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class ProcessaArquivo {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String nome = "Petrolinaaaa";
+		
+		int multiplicando, multiplicador;
+		
+		
+		String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoFisico\\tabuada.txt";
+		FileWriter arquivo = new FileWriter(path);
+	
+		PrintWriter gravarArquivo = new PrintWriter(path);
+		gravarArquivo.printf(nome);
+		System.out.println(nome);
+		
+			}
+		}
+		
+
+		//String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoFisico\\teste.txt";
+		//FileWriter arquivo = new FileWriter(path);
+
+		//PrintWriter gravarArquivo = new PrintWriter(arquivo);
+
+		//gravarArquivo.printf("Resuldado %s", nome);
+		//arquivo.close();
+
+		//System.out.println(nome);
+
+

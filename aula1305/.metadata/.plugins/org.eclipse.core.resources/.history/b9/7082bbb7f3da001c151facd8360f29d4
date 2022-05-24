@@ -1,0 +1,27 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class ProcessaArquivo {
+
+	public static void main(String[] args) throws IOException {
+		// Aula 1305 50 min assistido
+
+		Scanner in = new Scanner(System.in);
+		String nome = "Petrolinaaa";
+
+		String path = "C:\\Users\\danie\\Downloads\\Icarros\\icarros1305\\ArquivoFisico\\teste.txt";
+		FileWriter arquivo = new FileWriter(path);
+
+		PrintWriter gravarArquivo = new PrintWriter(arquivo);
+
+		gravarArquivo.printf("Resuldado %s", nome);
+		arquivo.close();
+
+		System.out.println(nome);
+
+		arquivo.close();
+
+	}
+}
