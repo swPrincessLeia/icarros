@@ -1,0 +1,21 @@
+
+public class Agenda {
+
+	public static void main(String[] args) {
+
+		ListaDeContatos sintaxeBanco = new ListaDeContatos();
+		BuscaDeContatos buscaContatos = new BuscaDeContatos();
+		
+		sintaxeBanco.Conectar();
+
+		if (sintaxeBanco.estaConectado()) {
+			System.out.println("Conectou! :D");
+			sintaxeBanco.listaContatos();
+
+		} else {
+
+			System.out.println("Deu ruim! :/");
+		}
+	}
+
+}

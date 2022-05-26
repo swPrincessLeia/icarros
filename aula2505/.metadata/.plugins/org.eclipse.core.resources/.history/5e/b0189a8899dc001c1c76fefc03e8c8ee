@@ -1,0 +1,30 @@
+
+public class BuscaDeContatos extends ListaDeContatos {
+
+	protected String email ="@";
+	protected boolean verificaEmail;
+
+	public boolean buscaContatos() {
+
+		try {
+			// variavel linha de comando qsl
+			String query = "select * from icarros.clientes where email_cliente like '%" + email + "%'";
+
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+			System.out.println(query);
+			if(resultset!= null) {
+				verificaEmail = true;
+			}
+			else return false;
+			//
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+		return verificaEmail;
+
+	}
+
+}

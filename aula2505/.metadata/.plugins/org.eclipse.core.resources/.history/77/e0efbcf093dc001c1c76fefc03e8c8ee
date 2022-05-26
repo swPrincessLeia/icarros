@@ -1,0 +1,106 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+public class BancoDeDados {
+
+	// criando variáveis privadas
+
+	private Connection connection = null;
+	private java.sql.Statement statement = null;
+	private ResultSet resultset = null;
+	private String email;
+
+	// iremos neste processo se conctar ao banco de dados fazendo a passagem de
+	// parametros
+
+	public void Conectar() {
+
+		String servidor = "jdbc:mysql://localhost/icarros";
+		String usuario = "root";
+		String senha = "bd@5A";
+		String driver = "com.mysql.cj.jdbc.Driver";
+
+		try {
+			Class.forName(driver);
+			this.connection = DriverManager.getConnection(servidor, usuario, senha);
+			this.statement = this.connection.createStatement();
+			
+
+		} catch (Exception e) {
+
+			System.out.println("Erro" + e.getMessage());
+		}
+	}
+
+	public boolean estaConectado() {
+
+		if (this.connection != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void listaContatos() {
+		try {
+			// variavel linha de comando qsl
+			String query = "select * from icarros.contatos";
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+			//
+			while (this.resultset.next()) {
+
+				String meuID = resultset.getString("id");
+				String meuNome = resultset.getString("nome");
+				int idade = resultset.getInt("idade");
+				String email = resultset.getNString("email");
+				String funcao = resultset.getString("funcao");
+				System.out.println("id: " + meuID +  " | Nome: " +  meuNome +  " | Idade:"+ idade + " | Função: " + funcao );
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+	}	
+	
+	public void buscaContatos() {
+	
+		try {
+			// variavel linha de comando qsl
+			String query = "select * from icarros.clientes where email_cliente like '%"+email+"%'";
+					
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+			System.out.println(query);
+			//
+			while (this.resultset.next()) {
+				
+				if(resultset!=null) {
+
+				String meuID = resultset.getString("id");
+				String meuNome = resultset.getString("nome");
+				int idade = resultset.getInt("idade");
+				String email = resultset.getNString("email");
+				String funcao = resultset.getString("funcao");
+				System.out.println("id: " + meuID +  " | Nome: " +  meuNome +  " | Idade:"+ idade + " | Função: " + funcao );
+				} 
+			}
+			System.out.println("E-mail não encontrado!");
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+	}
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,30 @@
+
+public class Agenda {
+
+	public static void main(String[] args) {
+
+		ListaDeContatos listaContatos = new ListaDeContatos();
+		BuscaDeContatos buscaContatos = new BuscaDeContatos();	
+		
+		listaContatos.Conectar();
+		buscaContatos.Conectar();
+
+		if (listaContatos.estaConectado()) {
+			System.out.println("Conectou! :D");
+			listaContatos.listaContatos();
+			buscaContatos.buscaContatos();
+
+		} else {
+
+			System.out.println("Deu ruim! :/");
+		}
+	}
+	
+	
+	public static void  todosContatos() {
+		
+		
+		
+	}   
+
+}

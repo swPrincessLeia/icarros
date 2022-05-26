@@ -1,0 +1,37 @@
+
+public class BuscaDeContatos extends ListaDeContatos {
+
+	protected String email = "P";
+
+	public void buscaContatos() {
+
+		try {
+			// variavel linha de comando qsl
+			String query = "select * from icarros.contatos where email like '%" + email + "%'";
+
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+
+			while (this.resultset.next()) {
+
+				String meuID = resultset.getString("id");
+				String meuNome = resultset.getString("nome");
+				int idade = resultset.getInt("idade");
+				String email = resultset.getNString("email");
+				String funcao = resultset.getString("funcao");
+				System.out.println("id: " + meuID + 
+						 " | Nome: " + meuNome + 
+						 " | Idade:" + idade +
+						 " | E-mail: " + email + 
+						 " | Função: " + funcao);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+	}
+
+}

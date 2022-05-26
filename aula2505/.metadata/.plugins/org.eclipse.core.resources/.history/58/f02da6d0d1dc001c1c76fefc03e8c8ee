@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class BuscaDeContatos extends ListaDeContatos {	
+
+	public ArrayList<String>  buscaContatos(String emailBusca) {
+		ArrayList<String> listaContatos = new ArrayList<>();
+
+		try {
+			// variavel linha de comando qsl
+			String query = "select * from icarros.contatos where email like '%" + emailBusca + "%'";
+			
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+
+			while (this.resultset.next()) {
+
+				String meuID = resultset.getString("id");
+				String meuNome = resultset.getString("nome");
+				int idade = resultset.getInt("idade");
+				String email = resultset.getNString("email");
+				String funcao = resultset.getString("funcao");
+				String retornaRegistro ="\nId: " + meuID + 
+						 "\n Nome: " + meuNome + 
+						 "\n Idade: " + idade +
+						 "\n E-mail: " + email + 
+						 "\n Função: " + funcao +"\n";
+				
+				
+				listaContatos.add(retornaRegistro);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+		return listaContatos;
+	}
+
+}

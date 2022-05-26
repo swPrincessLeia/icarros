@@ -1,0 +1,86 @@
+1:18
+
+atividade aula 2005
+
+
+Nome
+
+Idade
+
+Email
+
+Profissão
+
+1º) Fazer a validação de todos os campos como obrigatório
+
+2º) no campo idade não pode entrar caracteres
+
+3º) Ao clicar no botão gravar 
+
+gravar a informação em um arquivo txt
+
+dados.txt
+
+Precisa estar na mesma pasta da sua aplicação 
+
+4º) Limpar os campos
+
+5º) Posiciona o cursor e permite inserir um novo registro
+
+---------------------------------------------------------------------------------------------------
+
+2105
+Primeiro fazer todos os botões de operadores calcular
+Fazer o controle dos zeros
+Fazer o controle da vírgula
+Depois criar na nossa calculadora um botão para 
+mostrar o histórico
+
+10+2=12
++1=13
+
+cuidar do processo da tecla igual
+Quando for a primeira vez verificar o visor está vazio e não deixar ela atribuir o valor2 sem nenhum conteúdo
+a- Primeiro fazer todos os botões de operadores calcular
+
+b- Fazer o controle dos zeros
+
+c- Fazer o controle da vírgula
+
+d- Depois criar na nossa calculadora um botão para 
+mostrar o histórico
+
+e- Cuidar do processo da tecla igual
+
+f- Quando for a primeira vez verificar o visor está vazio e não deixar ela atribuir o valor2 sem nenhum conteúdo
+
+g- Inicializar a nossa calculadora com Zero, porém se digitar
+a virgula deixar como 0, caso contrário trocar o zero pelo
+número digitado correspondente
+
+-------------------------------------------------------------------------
+verificar atividade
+
+Nome
+Idade
+Email
+Profissão
+
+1º) Fazer a validação de todos os campos como obrigatório
+2º) no campo idade não pode entrar caracteres
+3º) Ao clicar no botão gravar 
+gravar a informação em um arquivo txt
+dados.txt
+Precisa estar na mesma pasta da sua aplicação 
+4º) Limpar os campos
+5º) Posiciona o cursor e permite inserir um novo registro
+
+
+	textUsuario.setText()
+
+erro app java
+
+gravarArquivo.append("Nome: "+textNome.getText()+"\nIdade: "+textIdade.getText()+"\nEmail: "+textEmail.getText()+"\nTelefone: "+textTelefone.getText()+"\n");
+
+
+https://webdeasy.de/en/error-a-jni-error-has-occured-how-to-fix-this-java-error/

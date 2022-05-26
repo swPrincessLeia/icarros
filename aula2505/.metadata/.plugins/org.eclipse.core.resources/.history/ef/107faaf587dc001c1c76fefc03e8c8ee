@@ -1,0 +1,19 @@
+
+public class Agenda {
+
+	public static void main(String[] args) {
+
+		BancoDeDados sintaxeBanco = new BancoDeDados();
+		sintaxeBanco.Conectar();
+
+		if (sintaxeBanco.estaConectado()) {
+			System.out.println("Conectou parça");
+			sintaxeBanco.listaContatos();
+
+		} else {
+
+			System.out.println("Deu ruim ermao");
+		}
+	}
+
+}

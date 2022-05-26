@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+public class ListaDeContatos extends ConexaoBD {
+
+	public ArrayList<String> listaContatos() {
+		
+		//o legal seria criar uma classe de contatos e criar uma lista desse objeto
+		ArrayList<String> listaContatos = new ArrayList<>();
+
+		try {
+			// query: variável para guardar o comando sql
+			String query = "select * from icarros.contatos";
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+
+			while (this.resultset.next()) {
+
+				String meuID = resultset.getString("id");
+				String meuNome = resultset.getString("nome");
+				int idade = resultset.getInt("idade");
+				String email = resultset.getNString("email");
+				String funcao = resultset.getString("funcao");
+
+				String retornaRegistro ="\nId: " + meuID + 
+						 "\n Nome: " + meuNome + 
+						 "\n Idade: " + idade +
+						 "\n E-mail: " + email + 
+						 "\n Função: " + funcao +"\n";
+				
+				listaContatos.add(retornaRegistro);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+		return listaContatos;
+
+	}
+
+}
