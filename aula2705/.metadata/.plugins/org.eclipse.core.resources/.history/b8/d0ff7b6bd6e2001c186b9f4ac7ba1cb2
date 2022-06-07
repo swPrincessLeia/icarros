@@ -1,0 +1,140 @@
+package mediaNotas;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import java.awt.Color;
+import javax.swing.JTextPane;
+import java.awt.SystemColor;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ClaculaMediaNotas extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textId;
+	private JTextField textNome;
+	private JTextField textNota1;
+	private JTextField textNota2;
+	private JTable table;
+	DefaultTableModel model;
+	private JScrollPane scrollPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ClaculaMediaNotas frame = new ClaculaMediaNotas();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ClaculaMediaNotas() {
+		setTitle("Sistemas de Notas");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 651, 433);
+		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.info);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		textId = new JTextField();
+		textId.setBounds(362, 79, 64, 20);
+		contentPane.add(textId);
+		textId.setColumns(10);
+
+		JLabel lblId = new JLabel("ID:");
+		lblId.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblId.setBounds(330, 80, 46, 14);
+		contentPane.add(lblId);
+
+		textNome = new JTextField();
+		textNome.setBounds(403, 123, 222, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+
+		textNota1 = new JTextField();
+		textNota1.setBounds(403, 182, 64, 20);
+		contentPane.add(textNota1);
+		textNota1.setColumns(10);
+
+		textNota2 = new JTextField();
+		textNota2.setBounds(403, 233, 64, 20);
+		contentPane.add(textNota2);
+		textNota2.setColumns(10);
+
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblNome.setBounds(330, 124, 46, 14);
+		contentPane.add(lblNome);
+
+		JLabel lblNota1 = new JLabel("Nota P1:");
+		lblNota1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblNota1.setBounds(330, 183, 64, 14);
+		contentPane.add(lblNota1);
+
+		JLabel lblNota2 = new JLabel("Nota P2:");
+		lblNota2.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblNota2.setBounds(330, 234, 64, 14);
+		contentPane.add(lblNota2);
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 77, 310, 174);
+		contentPane.add(scrollPane);
+
+		table = new JTable();
+		table.setFont(new Font("Segoe UI", Font.BOLD, 13));
+		scrollPane.setViewportView(table);
+		model = new DefaultTableModel();
+		Object[] column = { "ID", "Nome", "Nota P1", "Nota P2", "Média", "Status" };
+		Object[] row = new Object[6];
+		model.setColumnIdentifiers(column);
+		table.setModel(model);
+
+		table.setBackground(Color.WHITE);
+		table.setForeground(Color.BLACK);
+
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (textId.getText().equals("") || textNome.getText().equals("") || textNota1.getText().equals("")
+						|| textNota2.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+				}
+
+			}
+
+		});
+		btnSalvar.setForeground(Color.WHITE);
+		btnSalvar.setBackground(new Color(75, 0, 130));
+		btnSalvar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnSalvar.setBounds(451, 305, 89, 23);
+		contentPane.add(btnSalvar);
+	}
+
+}
