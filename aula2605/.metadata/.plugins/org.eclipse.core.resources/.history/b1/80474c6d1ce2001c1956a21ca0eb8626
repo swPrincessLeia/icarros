@@ -1,0 +1,211 @@
+package telas;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import metodos.CRUDContato;
+import objetos.Contato;
+import java.awt.Color;
+import javax.swing.JTextPane;
+
+public class MenuCRUD extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textPesqReg;
+	private JLabel lblEntreID;
+	private JButton btnProcessar;
+	private JLabel lblPesReg;
+	private JTextPane textPainel2;
+	private JButton btnInserir;
+	private JLabel lblNomeI;
+	private JLabel lblIdadeI;
+	private JLabel lblEmailI;
+	private JLabel lblFuncaoI;
+	private JTextField textNomeI;
+	private JTextField textIdadeI;
+	private JTextField textEmailI;
+	private JTextField textFuncaoI;
+
+	private int op;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuCRUD frame = new MenuCRUD();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MenuCRUD() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 742, 447);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(51, 153, 204));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JButton btnSelecionar = new JButton("S");
+		btnSelecionar.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		btnSelecionar.setBackground(Color.WHITE);
+		btnSelecionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblPesReg.setVisible(true);
+				lblEntreID.setVisible(true);
+				textPesqReg.setVisible(true);
+				btnProcessar.setVisible(true);
+
+			}
+		});
+		btnSelecionar.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+			}
+		});
+		btnSelecionar.setBounds(28, 29, 48, 23);
+		contentPane.add(btnSelecionar);
+
+		textPesqReg = new JTextField();
+		textPesqReg.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		textPesqReg.setBounds(71, 215, 84, 35);
+		contentPane.add(textPesqReg);
+		textPesqReg.setColumns(10);
+
+		lblEntreID = new JLabel("Entre com o ID desejado");
+		lblEntreID.setForeground(Color.WHITE);
+		lblEntreID.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblEntreID.setBounds(38, 138, 199, 50);
+		contentPane.add(lblEntreID);
+
+		btnProcessar = new JButton("Processar");
+		btnProcessar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		btnProcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				CRUDContato contato = new CRUDContato();
+				contato.Conectar();
+
+				String idTela = textPesqReg.getText();
+				textPainel2.setVisible(true);
+				for (Contato c : contato.PesquisarID(idTela)) {
+
+					if (idTela.equals(c.getIdContato())) {
+
+						textPainel2.setText("\nID: " + c.getIdContato() +
+					            "\nNome: " + c.getNomeContato()+
+				                 "\nIdade: " + c.getIdadeContato()+
+				                  "\nE-mail: " + c.getEmailContato()+
+				                   "\nFunção: " + c.getFuncaoContato());	
+					} else {
+						textPainel2.setText("Id não cadastrado");
+					}
+				}
+
+			}
+		});
+		btnProcessar.setBounds(55, 305, 114, 35);
+		contentPane.add(btnProcessar);
+
+		lblPesReg = new JLabel("Pesquisando um  Registro no Banco de Dados");
+		lblPesReg.setForeground(Color.WHITE);
+		lblPesReg.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		lblPesReg.setBounds(38, 63, 441, 43);
+		contentPane.add(lblPesReg);
+
+		textPainel2 = new JTextPane();
+		textPainel2.setFont(new Font("NSimSun", Font.BOLD, 14));
+		textPainel2.setForeground(Color.WHITE);
+		textPainel2.setBackground(new Color(0, 51, 102));
+		textPainel2.setBounds(517, 0, 199, 187);
+		contentPane.add(textPainel2);
+
+		btnInserir = new JButton("I");
+		btnInserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnInserir.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		btnInserir.setBackground(Color.WHITE);
+		btnInserir.setBounds(86, 30, 48, 23);
+		contentPane.add(btnInserir);
+
+		lblNomeI = new JLabel("Nome:");
+		lblNomeI.setForeground(Color.WHITE);
+		lblNomeI.setFont(new Font("Segoe UI", Font.BOLD, 13));
+		lblNomeI.setBounds(269, 148, 48, 35);
+		contentPane.add(lblNomeI);
+
+		lblIdadeI = new JLabel("Idade:");
+		lblIdadeI.setForeground(Color.WHITE);
+		lblIdadeI.setFont(new Font("Segoe UI", Font.BOLD, 13));
+		lblIdadeI.setBounds(269, 181, 48, 35);
+		contentPane.add(lblIdadeI);
+
+		lblEmailI = new JLabel("E-mail:");
+		lblEmailI.setForeground(Color.WHITE);
+		lblEmailI.setFont(new Font("Segoe UI", Font.BOLD, 13));
+		lblEmailI.setBounds(269, 217, 48, 35);
+		contentPane.add(lblEmailI);
+
+		lblFuncaoI = new JLabel("Fun\u00E7\u00E3o:");
+		lblFuncaoI.setForeground(Color.WHITE);
+		lblFuncaoI.setFont(new Font("Segoe UI", Font.BOLD, 13));
+		lblFuncaoI.setBounds(269, 248, 48, 35);
+		contentPane.add(lblFuncaoI);
+
+		textNomeI = new JTextField();
+		textNomeI.setBounds(327, 156, 371, 20);
+		contentPane.add(textNomeI);
+		textNomeI.setColumns(10);
+
+		textIdadeI = new JTextField();
+		textIdadeI.setBounds(327, 189, 48, 20);
+		contentPane.add(textIdadeI);
+		textIdadeI.setColumns(10);
+
+		textEmailI = new JTextField();
+		textEmailI.setBounds(327, 225, 371, 20);
+		contentPane.add(textEmailI);
+		textEmailI.setColumns(10);
+
+		textFuncaoI = new JTextField();
+		textFuncaoI.setBounds(327, 256, 371, 20);
+		contentPane.add(textFuncaoI);
+		textFuncaoI.setColumns(10);
+
+		// visibilidade selecionar
+		textPesqReg.setVisible(false);
+		lblEntreID.setVisible(false);
+		lblPesReg.setVisible(false);
+		btnProcessar.setVisible(false);
+		textPainel2.setVisible(false);
+
+		// visivilidade inserir
+
+	}
+}

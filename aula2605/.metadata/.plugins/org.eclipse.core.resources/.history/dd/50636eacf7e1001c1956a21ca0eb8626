@@ -1,0 +1,25 @@
+package metodos;
+
+public class EditaContato extends ConexaoBD {
+
+	public void editarContato(String id, String nome, int idade, String email, String funcao) {
+
+		try {
+
+			if (nome == null) {
+				nome = resultset.getString("nome");
+		}
+			String query = "update contatos set nome='" + nome + "', idade=" + idade + ", email='" + email
+					+ "', funcao='" + funcao + "'where id=" + id + ";";
+			this.statement.executeLargeUpdate(query);
+
+		}
+
+		catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+
+		}
+
+	}
+
+}

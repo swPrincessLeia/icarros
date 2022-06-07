@@ -1,0 +1,67 @@
+package telas;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Menu extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Menu frame = new Menu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Menu() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnS = new JButton("S");
+		btnS.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Selecionar s = new Selecionar();
+						s.show();
+			}
+		});
+		btnS.setBounds(10, 36, 89, 23);
+		contentPane.add(btnS);
+		
+		JButton btnI = new JButton("I");
+		btnI.setBounds(109, 36, 89, 23);
+		contentPane.add(btnI);
+		
+		JButton btnD = new JButton("D");
+		btnD.setBounds(216, 36, 89, 23);
+		contentPane.add(btnD);
+		
+		JButton btnU = new JButton("U");
+		btnU.setBounds(315, 36, 89, 23);
+		contentPane.add(btnU);
+	}
+
+}

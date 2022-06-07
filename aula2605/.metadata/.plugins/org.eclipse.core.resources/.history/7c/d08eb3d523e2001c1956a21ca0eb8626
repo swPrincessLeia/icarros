@@ -1,0 +1,118 @@
+package telas;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import metodos.CRUDContato;
+import objetos.Contato;
+
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JTextArea;
+
+public class Selecionar extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textId;
+	private JTextField textDados;
+	private JTextArea textDado;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Selecionar frame = new Selecionar();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Selecionar() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Pesquisando um  Registro no Banco de Dados");
+		lblNewLabel.setBounds(10, 45, 282, 53);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Entre com o ID desejado");
+		lblNewLabel_1.setBounds(32, 109, 168, 27);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnProcessar = new JButton("Processar");
+		btnProcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CRUDContato contato = new CRUDContato();
+				contato.Conectar();
+				String idTela = textId.getText();
+				
+				for (Contato c : contato.PesquisarID(idTela)) {
+
+					if (idTela.equals(c.getIdContato())) {
+						textDado.setText("\nID: " + c.getIdContato() +
+					            "\nNome: " + c.getNomeContato()+
+				                 "\nIdade: " + c.getIdadeContato()+
+				                  "\nE-mail: " + c.getEmailContato()+
+				                   "\nFunção: " + c.getFuncaoContato());	
+
+					}else {
+						
+						textDado.setText("n tem");
+					}
+				}
+
+				
+				
+				
+				
+				
+			}
+		});
+		btnProcessar.setBounds(53, 209, 89, 23);
+		contentPane.add(btnProcessar);
+		
+		textId = new JTextField();
+		textId.setBounds(53, 147, 86, 20);
+		contentPane.add(textId);
+		textId.setColumns(10);
+		
+		
+		
+		textDado = new JTextArea();
+		textDado.setBounds(196, 95, 168, 140);
+		contentPane.add(textDado);
+		
+	
+		
+		
+
+		
+		
+		
+		
+	}
+}

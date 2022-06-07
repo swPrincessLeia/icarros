@@ -1,0 +1,34 @@
+package metodos;
+
+public class EditaContato extends ConexaoBD {
+
+	// Método para atualizar contato
+	public void editarContato(String id, String nome, int idade, String email, String funcao) {
+
+		try {
+
+			String query = "update contatos set nome='" + nome + "', idade=" + idade + ", email='" + email
+					+ "', funcao='" + funcao + "'where id=" + id + ";";
+			this.statement.executeLargeUpdate(query);
+
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+
+		}
+
+	}
+
+	// Método para inserir contatos, todos os campos são not null
+	public void inserirContato(String nome, int idade, String email, String funcao) {
+
+		try {
+			String query = "insert into contatos(nome, idade, email, funcao) values('"+nome+"', "+idade+",'"+email+"','"+funcao+"');";
+			this.statement.executeUpdate(query);
+			
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+
+	}
+
+}

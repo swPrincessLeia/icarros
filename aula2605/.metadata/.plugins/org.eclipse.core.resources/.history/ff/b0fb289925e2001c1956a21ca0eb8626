@@ -1,0 +1,114 @@
+package telas;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import metodos.CRUDContato;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Inseri extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textNome;
+	private JTextField textIdade;
+	private JTextField textEmail;
+	private JTextField textFuncao;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Inseri frame = new Inseri();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Inseri() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Nome:");
+		lblNewLabel.setBounds(43, 46, 46, 14);
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("Idade:");
+		lblNewLabel_1.setBounds(43, 86, 46, 14);
+		contentPane.add(lblNewLabel_1);
+
+		JLabel lblNewLabel_2 = new JLabel("E-mail:");
+		lblNewLabel_2.setBounds(43, 123, 46, 14);
+		contentPane.add(lblNewLabel_2);
+
+		JLabel lblNewLabel_3 = new JLabel("Fun\u00E7\u00E3o:");
+		lblNewLabel_3.setBounds(29, 171, 46, 14);
+		contentPane.add(lblNewLabel_3);
+
+		textNome = new JTextField();
+		textNome.setBounds(99, 43, 282, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+
+		textIdade = new JTextField();
+		textIdade.setBounds(95, 83, 86, 20);
+		contentPane.add(textIdade);
+		textIdade.setColumns(10);
+
+		textEmail = new JTextField();
+		textEmail.setBounds(95, 120, 86, 20);
+		contentPane.add(textEmail);
+		textEmail.setColumns(10);
+
+		textFuncao = new JTextField();
+		textFuncao.setBounds(99, 168, 261, 20);
+		contentPane.add(textFuncao);
+		textFuncao.setColumns(10);
+
+		JButton btnProcessar = new JButton("Salvar");
+		btnProcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CRUDContato contato = new CRUDContato();
+				contato.Conectar();
+				String nome = textNome.getText();
+				String idade= textIdade.getText();
+				int i = Integer.parseInt(idade);
+				String email= textEmail.getText();
+				String funcao = textFuncao.getText();
+
+				contato.inserirContato(nome, i, email, funcao);
+				
+
+			}
+		});
+		btnProcessar.setBounds(109, 199, 89, 23);
+		contentPane.add(btnProcessar);
+
+		JLabel lblMsg = new JLabel("");
+		lblMsg.setBounds(72, 233, 236, 17);
+		contentPane.add(lblMsg);
+		lblMsg.setText("");
+	}
+
+}

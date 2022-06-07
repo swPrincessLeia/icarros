@@ -1,0 +1,139 @@
+package telas;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import metodos.CRUDContato;
+import objetos.Contato;
+import java.awt.Color;
+
+public class MenuCRUD extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textPesqReg;
+	private JLabel lblEntreID;
+	private JButton btnProcessar;
+	private JLabel lblPesReg;
+	private JTextArea textAreaBuscaID;
+	private JScrollPane scrollPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuCRUD frame = new MenuCRUD();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MenuCRUD() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 742, 447);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JButton btnSelecionar = new JButton("Selecionar");
+		btnSelecionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblPesReg.setVisible(true);
+				lblEntreID.setVisible(true);
+				textPesqReg.setVisible(true);
+				btnProcessar.setVisible(true);
+
+			}
+		});
+		btnSelecionar.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+			}
+		});
+		btnSelecionar.setBounds(28, 29, 89, 23);
+		contentPane.add(btnSelecionar);
+
+		textPesqReg = new JTextField();
+		textPesqReg.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		textPesqReg.setBounds(43, 216, 126, 35);
+		contentPane.add(textPesqReg);
+		textPesqReg.setColumns(10);
+
+		lblEntreID = new JLabel("Entre com o ID desejado");
+		lblEntreID.setForeground(Color.WHITE);
+		lblEntreID.setFont(new Font("NSimSun", Font.BOLD, 16));
+		lblEntreID.setBounds(10, 141, 199, 50);
+		contentPane.add(lblEntreID);
+
+		btnProcessar = new JButton("Processar");
+		btnProcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CRUDContato contato = new CRUDContato();
+				contato.Conectar();
+				
+				
+				String idTela = textPesqReg.getText();
+				for(Contato c: contato.PesquisarID(idTela)) {
+					
+					if(idTela.equals(c.getIdContato()))
+					
+					textAreaBuscaID.setText("\nID: " + c.getIdContato() +
+				            "\nNome: " + c.getNomeContato()+
+			                 "\nIdade: " + c.getIdadeContato()+
+			                  "\nE-mail: " + c.getEmailContato()+
+			                   "\nFunção: " + c.getFuncaoContato());
+															
+				}
+				
+				
+			}
+		});
+		btnProcessar.setBounds(55, 305, 89, 23);
+		contentPane.add(btnProcessar);
+
+		lblPesReg = new JLabel("Pesquisando um  Registro no Banco de Dados");
+		lblPesReg.setForeground(Color.WHITE);
+		lblPesReg.setFont(new Font("NSimSun", Font.BOLD, 16));
+		lblPesReg.setBounds(28, 84, 365, 43);
+		contentPane.add(lblPesReg);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(307, 173, 267, 161);
+		contentPane.add(scrollPane);
+		
+		textAreaBuscaID = new JTextArea();
+		textAreaBuscaID.setForeground(Color.GREEN);
+		textAreaBuscaID.setEditable(false);
+		scrollPane.setViewportView(textAreaBuscaID);
+
+		textPesqReg.setVisible(false);
+		lblEntreID.setVisible(false);
+		lblPesReg.setVisible(false);
+		btnProcessar.setVisible(false);
+		textAreaBuscaID.setVisible(false);
+
+	}
+}
