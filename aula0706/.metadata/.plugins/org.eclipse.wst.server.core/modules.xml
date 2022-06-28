@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:Livros" serverId="Tomcat v10.0 Server at localhost (6)"/>
+  <module moduleId="org.eclipse.jst.jee.server:NavegacaoWeb" serverId="Tomcat v10.0 Server at localhost (2)"/>
+  <module moduleId="org.eclipse.jst.jee.server:WebCad" serverId="Tomcat v10.0 Server at localhost (3)"/>
+  <module moduleId="org.eclipse.jst.jee.server:javaCrud" serverId="Tomcat v10.0 Server at localhost (4)"/>
+  <module moduleId="org.eclipse.jst.jee.server:WebLivros" serverId="Tomcat v10.0 Server at localhost (5)"/>
+</modules>

@@ -1,0 +1,45 @@
+package dao;
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+
+public class Main {
+
+	public static void main(String[] args) throws ParseException {
+
+		CRUD crud = new CRUD();
+		crud.conectar();
+		DataPadraoBrasil dataUSA = new DataPadraoBrasil();
+
+		String dataEntrada = "05-05-2023";
+		SimpleDateFormat formater = new SimpleDateFormat("dd-MM-yyyy");		
+		dataUSA.dataUSA(formater.parse(dataEntrada));
+		Livro livro = new Livro("nometeste", "autorteste", "editorateste", formater.parse(dataEntrada));		
+		crud.inserirLivros(livro);
+		//System.out.println(livro);
+				
+		//crud.editarLivro("42", "foi","foi", "foi",formater.parse(dataEntrada));
+	    // crud.removerLivro("5");
+		
+		// Listar todos os livros		
+		System.out.println(crud.listarTodosLivros());
+		for (Livro l : crud.listarTodosLivros()) {
+			System.out.println("\nID: " + l.getId() +
+								"\nLivro: " + l.getNome() + 
+								 "\nAutor: " + l.getAutor() +
+					              "\nEditora: " + l.getEditora() + 
+					               "\nData Lançamento: " + l.getData());
+		}
+		// Listar livros filtrados		
+		for (Livro l : crud.pesquisarLivros("sagra")) {
+			System.out.println("\nID: " + l.getId() + 
+								"\nLivro: " + l.getNome() + 
+								 "\nAutor: " + l.getAutor() +
+								  "\nEditora: " + l.getEditora() + 
+								   "\nData Lançamento: " + l.getData());
+		}
+
+	}
+}

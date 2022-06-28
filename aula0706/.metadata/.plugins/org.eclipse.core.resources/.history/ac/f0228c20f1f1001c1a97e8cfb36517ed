@@ -1,0 +1,63 @@
+
+<%@page import="dao.CRUD"%>
+<%@page import="dao.Livro"%>
+<%@page import="dao.Livro,dao.DataPadraoBrasil"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista-livros</title>
+</head>
+<body>
+
+	<%
+	CRUD crud = new CRUD();
+	crud.Conectar();
+	ArrayList<Livro> lista = crud.listarTodosLivros();
+	DataPadraoBrasil d = new DataPadraoBrasil();
+	
+	%>
+	
+
+	<table border="1" width="50%">
+
+		<tr>
+			<td>Id</td>
+			<td>Nome do Livro</td>
+			<td>Autor</td>
+			<td>Editora</td>
+			<td>Data de lançamento</td>
+		</tr>
+
+		<%
+		for (int i = 0; i < lista.size(); i++) {
+
+			Livro l = lista.get(i);
+			String dl = d.data(l.getData());
+		
+					
+		%>
+		
+		
+		<tr>
+			<td><%=l.getId()%></td>
+			<td><%=l.getNome()%></td>
+			<td><%=l.getAutor()%></td>
+			<td><%=l.getEditora()%></td>
+			<td><%=dl%></td>
+			
+
+		</tr>
+		<%
+		}
+		%>
+
+
+	</table></body>
+</html>

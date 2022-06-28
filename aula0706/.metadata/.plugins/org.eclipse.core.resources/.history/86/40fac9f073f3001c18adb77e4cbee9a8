@@ -1,0 +1,51 @@
+<%@page import="dao.CRUD"%>
+<%@page import="dao.Livro"%>
+<%@page import="dao.Livro,dao.DataPadraoBrasil"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+						ArrayList<Livro> lb = crud.pesquisarLivros(request.getParameter("substring"));
+							for (int i = 0; i < lb.size(); i++) {
+								Livro livrob = lb.get(i);
+								String dl = d.data(livrob.getData());
+						%>
+
+						<tr>
+							<td><%=i + 1%></td>
+							<td><%=livrob.getId()%></td>
+						    <td><%=livrob.getNome()%></td>
+						    <td><%=livrob.getAutor()%></td>
+							<td><%=livrob.getEditora()%></td>
+							<td><%=dl%></td>
+							<td>
+								<%
+								out.print("<a style = color:#836FFF; href='editar.jsp?id=" + livrob.getId() + "&nome=" + livrob.getNome() + "&autor="
+										+ livrob.getAutor() + "&editor=" + livrob.getEditora() + "&data=" + livrob.getData() + "'>Editar</a>");
+								%>
+							</td>
+							<td>
+								<%
+								out.print("<a style = color:#F08080; href='excluir.jsp?id=" + livrob.getId() + "&nome=" +livrob.getNome() + "&autor="
+										+ livrob.getAutor() + "&editor=" + livrob.getEditora() + "&data=" + dl + "'>Remover</a>");
+								%>
+							</td>
+							
+						</tr>
+
+						<%
+						}
+
+
+</body>
+</html>

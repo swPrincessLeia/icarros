@@ -1,0 +1,54 @@
+package dao;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Main {
+
+	public static void main(String[] args) throws ParseException {
+		// TODO Auto-generated method stub
+
+//'" + sdf.format(livro.getData()) +
+
+		CRUD crud = new CRUD();
+		crud.Conectar();
+		 
+		String dataEntrada = "02-08-2002";
+		
+		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+		formater.parse(dataEntrada);
+		
+		Livro livro = new Livro("oi3", "oi3","oi2", formater.parse(dataEntrada));
+		crud.inserirLivros(livro);	
+
+		 System.out.println(dataEntrada);
+		 
+		 System.out.println(livro);
+		//Inserir um livro
+		crud.inserirLivros(livro);
+		// crud.removerLivro("5");
+		//Listar livros
+		// System.out.println(crud.listarTodosLivros());
+
+		// for (Livro l : crud.listarTodosLivros()) {
+		// System.out.println("\nID: " + l.getId() + "\nLivro: " + l.getNome() +
+		// "\nAutor: " + l.getAutor()
+		// + "\nEditora: " + l.getEditora() + "\nData Lan�amento: " + l.getData());
+
+		// }
+		
+		
+		 for (Livro l : crud.pesquisarLivros("sagra")) {
+				 System.out.println("\nID: " + l.getId() + "\nLivro: " + l.getNome() +
+				 "\nAutor: " + l.getAutor()
+				 + "\nEditora: " + l.getEditora() + "\nData Lan�amento: " + l.getData());
+
+				 }
+		
+		
+
+	}
+}

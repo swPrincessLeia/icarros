@@ -1,0 +1,54 @@
+package dao;
+import java.text.DateFormat;
+import java.text.ParseException;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Main {
+
+	public static void main(String[] args) throws ParseException {
+		// TODO Auto-generated method stub
+
+//'" + sdf.format(livro.getData()) +
+		
+		CRUD crud = new CRUD();
+		crud.Conectar();
+		
+		
+		//Date data= new Date();
+		//Date dataL = new SimpleDateFormat("yyyy-MM-dd").parse(data);	
+	//	System.out.println(data);
+		//String t = "02-08-2002";
+	//	Date data = new SimpleDateFormat("yyyy-MM-dd").parse(t);	
+	//	System.out.println(data);
+	//	Livro li = new Livro("oi3", "oi3","oi2",data);
+		//System.out.println(li);
+		//Inserir um livro
+	//	crud.inserirLivros(li);
+		
+		//crud.removerLivro("5");
+		
+		
+		
+		
+	
+		crud.pesquisarLivros("Era");
+		
+		
+		
+		
+		
+		
+		
+		
+//Listar livros
+		//System.out.println(crud.listarTodosLivros());
+
+	//	for (Livro l : crud.listarTodosLivros()) {
+			//System.out.println("\nID: " + l.getId() + "\nLivro: " + l.getNome() + "\nAutor: " + l.getAutor()
+				//	+ "\nEditora: " + l.getEditora() + "\nData Lan�amento: " + l.getData());
+
+	//	}
+
+	}
+}

@@ -1,0 +1,76 @@
+package dao;
+
+import java.util.Date;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+public class CRUD extends ConexaoBD {
+	
+	
+	
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	// ________________________________________________________________________________________
+	// Método para inserir um registro, todos os campos são not null
+	// ________________________________________________________________________________________
+	public void inserirLivros(Livro livro) {
+
+		try {
+			this.preparedStatement = this.connection.prepareStatement("insert into livros(nome_livro, autor_livro, editora_livro, data_lancamento) value (?, ?, ?, ?)");
+			preparedStatement.setString(1,livro.getNome());
+			preparedStatement.setString(2,livro.getAutor());
+			preparedStatement.setString(3,livro.getEditora());
+			preparedStatement.setObject(4,livro.getData());
+			
+			
+			String query = "insert into livros(nome_livro, autor_livro, editora_livro, data_lancamento) values('" + livro.getNome() + "', '" + livro.getAutor()+ "','"
+					+ livro.getEditora()+ "','" + livro.getData()  + "');";
+			//,'" + livro.getData() + "'
+			
+			this.statement.executeUpdate(query);
+			
+
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+
+	}
+
+	// ________________________________________________________________________________________
+	// Método para listar todos os registros
+	// ________________________________________________________________________________________
+
+	public ArrayList<Livro> listarTodosLivros() {
+
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		String id, nome, autor, editora;
+		Date data;
+
+		try {
+			String query = "select * from icarros.livros";
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+
+			while (this.resultset.next()) {
+
+				id = resultset.getString("id_livros");
+				nome = resultset.getString("nome_livro");
+				autor = resultset.getString("autor_livro");
+				editora = resultset.getString("editora_livro");
+				data = resultset.getDate("data_lancamento");
+			
+				Livro l = new Livro(id, nome, autor, editora, data);
+				lista.add(l);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+		return lista;
+
+	}
+
+}

@@ -1,0 +1,5 @@
+127.0.0.1 - - [21/Jun/2022:20:02:46 -0300] "GET / HTTP/1.1" 404 764
+0:0:0:0:0:0:0:1 - - [21/Jun/2022:20:02:47 -0300] "GET /NavegacaoWeb/index.jsp HTTP/1.1" 200 403
+0:0:0:0:0:0:0:1 - - [21/Jun/2022:20:02:47 -0300] "GET /favicon.ico HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [21/Jun/2022:20:02:50 -0300] "GET /NavegacaoWeb/noticia.html HTTP/1.1" 200 619
+0:0:0:0:0:0:0:1 - - [21/Jun/2022:20:04:26 -0300] "GET /NavegacaoWeb/noticia.html HTTP/1.1" 200 613

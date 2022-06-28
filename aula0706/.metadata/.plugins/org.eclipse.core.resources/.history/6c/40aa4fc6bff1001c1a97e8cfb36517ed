@@ -1,0 +1,70 @@
+package dao;
+
+import java.util.Date;
+
+public class Livro {
+	private String id, nome, autor, editora;
+	private Date data;
+
+	public Livro() {
+	}
+
+	public Livro( String nome, String autor, String editora, Date data) {
+		this.nome = nome;
+		this.autor = autor;
+		this.editora = editora;
+		this.data = data;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getEditora() {
+		return editora;
+	}
+
+	public void setEditora(String editora) {
+		this.editora = editora;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return"\nID: " + id +
+	            "\nLivro: " + nome +
+                "\nAutor: " + autor +
+                 "\nEditora: " + editora +
+                  "\nData Lançamento: " + data + "\n";
+	}
+	
+	
+
+}

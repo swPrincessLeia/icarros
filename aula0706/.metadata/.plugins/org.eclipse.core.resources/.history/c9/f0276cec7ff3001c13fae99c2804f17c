@@ -1,0 +1,162 @@
+package dao;
+
+import java.util.Date;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+public class CRUD extends ConexaoBD {
+
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	// ________________________________________________________________________________________
+	// Método para inserir um registro, todos os campos s�o not null
+	// ________________________________________________________________________________________
+	public void inserirLivros(Livro livro) {
+
+		try {
+			this.preparedStatement = this.connection.prepareStatement(
+					"insert into livros(nome_livro, autor_livro, editora_livro, data_lancamento) value (?, ?, ?, ?)");
+			preparedStatement.setString(1, livro.getNome());
+			preparedStatement.setString(2, livro.getAutor());
+			preparedStatement.setString(3, livro.getEditora());
+			preparedStatement.setObject(4, livro.getData());
+			this.preparedStatement.execute();
+			this.preparedStatement.close();
+
+			// String query = "insert into livros(nome_livro, autor_livro, editora_livro,
+			// data_lancamento) values('" + livro.getNome() + "', '" + livro.getAutor()+
+			// "','"
+			// + livro.getEditora()+ "','" + livro.getData() + "');";
+			// ,'" + livro.getData() + "'
+
+			// this.statement.executeUpdate(query);
+
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+
+	}
+
+	// ________________________________________________________________________________________
+	// Método para atualizar registro
+	// ________________________________________________________________________________________
+	public void editarLivro(String id, String nome, String autor, String editora, Date data) {
+
+		try {
+			this.preparedStatement = this.connection.prepareStatement(
+					"update livros set nome_livro=?, autor_livro=?, editora_livro=?, data_lancamento=? where id_livros="
+							+ id);
+
+			preparedStatement.setString(1, nome);
+			preparedStatement.setString(2, autor);
+			preparedStatement.setString(3, editora);
+			preparedStatement.setObject(4, data);
+			this.preparedStatement.execute();
+			this.preparedStatement.close();
+
+			// String query = "insert into livros(nome_livro, autor_livro, editora_livro,
+			// data_lancamento) values('" + livro.getNome() + "', '" + livro.getAutor()+
+			// "','"
+			// + livro.getEditora()+ "','" + livro.getData() + "');";
+			// ,'" + livro.getData() + "'
+
+			// this.statement.executeUpdate(query);
+
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+	}
+
+	// ________________________________________________________________________________________
+	// Método para excluir um registro
+	// ________________________________________________________________________________________
+	public void removerLivro(String id) {
+
+		try {
+			String query = "delete from livros where id_livros=" + id + ";";
+			this.statement.executeUpdate(query);
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+
+		}
+	}
+
+	// ________________________________________________________________________________________
+	// Método para listar todos os registros
+	// ________________________________________________________________________________________
+
+	public ArrayList<Livro> listarTodosLivros() {
+
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		String id, nome, autor, editora;
+		Date data;
+
+		try {
+			String query = "select * from icarros.livros";
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+
+			while (this.resultset.next()) {
+
+				id = resultset.getString("id_livros");
+				nome = resultset.getString("nome_livro");
+				autor = resultset.getString("autor_livro");
+				editora = resultset.getString("editora_livro");
+				data = resultset.getDate("data_lancamento");
+
+				Livro l = new Livro(id, nome, autor, editora, data);
+				lista.add(l);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+		return lista;
+
+	}
+
+	// ________________________________________________________________________________________
+	// Método que lista  registros filtrados
+	// ________________________________________________________________________________________
+
+	public ArrayList<Livro> pesquisarLivros(String substring) {
+
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		String id, nome, autor, editora;
+		Date data;
+
+		try {
+			String query = "select * from icarros.livros where nome_livro like '%"+substring+"%'" 		
+							+ "or autor_livro like '%"+substring+"%'"
+							+ "or editora_livro like '%"+substring+"%'"
+							+ "or data_lancamento like '%"+substring+"%'" ;
+
+			this.resultset = this.statement.executeQuery(query);
+			this.statement = this.connection.createStatement();
+			while (this.resultset.next()) {
+
+				id = resultset.getString("id_livros");
+				nome = resultset.getString("nome_livro");
+				autor = resultset.getString("autor_livro");
+				editora = resultset.getString("editora_livro");
+				data = resultset.getDate("data_lancamento");
+
+				Livro l = new Livro(id, nome, autor, editora, data);
+
+				lista.add(l);
+				
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro" + e.getMessage());
+
+		}
+
+		return lista;
+
+	}
+}
